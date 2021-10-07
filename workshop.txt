@@ -1,0 +1,25 @@
+version=1
+id=2289454303
+title=Eggon's Hotkeys
+description=This mod introduces hotkeys for actions on moveables (furniture) - pick up, place, dismantle & rotate and now also for SMOKIN'! No more excessive clicking!
+description=
+description=[b]You can choose the key bindings in the game's hotkeys menu![/b] Thanks to @ThereforeAliens for the know-how, and to @NoctisFalco for previous customization idea. Default bindings are the following:
+description=
+description=Pick up - press: ARROW UP
+description=Place - press: ARROW DOWN
+description=Dismantle - press: DELETE
+description=Rotate - press: ARROW RIGHT
+description=Smoke - press: C
+description=
+description=The smoking shortcut works even if items are in a bag and it packs them again to the relevant bags after smoking is finished!
+description=
+description=I play on build 41, don't know if it works on earlier builds. It might. If you tried and know if it works or not, please let me know.
+description=
+description=If you like this mod, hit the like button and check out my other [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]mods![/url] :)
+description=
+description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=
+description=Workshop ID: 2289454303
+description=Mod ID: eggonsHotkeys
+tags=Build 41;Interface
+visibility=public

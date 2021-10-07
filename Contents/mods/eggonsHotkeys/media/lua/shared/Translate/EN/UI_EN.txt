@@ -1,0 +1,7 @@
+UI_EN = {
+    UI_optionscreen_binding_eggonsHotkeys = "Eggon's Hotkeys for Furniture",
+    UI_optionscreen_binding_pickup = "Pick up",
+    UI_optionscreen_binding_place = "Place",
+    UI_optionscreen_binding_rotate = "Rotate",
+    UI_optionscreen_binding_scrap = "Dismantle"
+}
