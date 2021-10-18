@@ -1,4 +1,4 @@
-EHK = {}
+EHK = EHK or {}
 -- defaults = {
 --     pickup = 200,
 --     place = 208,
