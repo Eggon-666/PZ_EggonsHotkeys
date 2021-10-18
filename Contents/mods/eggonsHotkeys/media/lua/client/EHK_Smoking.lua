@@ -39,6 +39,17 @@ EHK.smoke = function()
     ISTimedActionQueue.add(transferFireSource)
 end
 
+-- for fullType, _ in pairs(coś) do
+-- 1 Czy posiadamy instancję fullType?
+-- jeśli NIE NEXT FULLTYPE!!!
+-- jeśli tak
+-- -- znajdź minimalną ilość
+-- -- usuń wszystkie inne z main inventory
+-- -- Queue smoke
+-- -- Queue Reappear
+-- oprogramować ON STOP dla reappearAction
+
+-- czy
 -- 1. Czy jest zapalniczka w main inventory?
 -- jeśli tak - nic nie rób
 -- jeśli nie - znajdź zapalniczkę z najniższym zużyciem i jeśli istnieje przepakuj do inventory

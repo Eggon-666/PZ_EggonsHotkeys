@@ -1,6 +1,6 @@
 require "TimedActions/ISBaseTimedAction"
 
-TestAction = ISBaseTimedAction:derive("ReappearItems")
+ReappearItems = ISBaseTimedAction:derive("ReappearItems")
 
 function ReappearItems:isValid()
     -- log("isValid")
