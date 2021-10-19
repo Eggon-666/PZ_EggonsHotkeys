@@ -7,7 +7,7 @@ local function log(string)
 end
 
 function TestAction:isValid()
-    -- log("isValid")
+    print("isValid")
     return true
 end
 
@@ -20,13 +20,13 @@ end
 
 function TestAction:update()
     self.updateNo = self.updateNo + 1
-    -- log("update")
+    print("update")
     -- self:forceStop()
 end
 
 function TestAction:start()
     print("start")
-    self:forceStop()
+    -- self:forceStop()
 end
 
 function TestAction:perform()
@@ -38,13 +38,17 @@ function TestAction:perform()
     -- Remove Timed Action from stack
     ISBaseTimedAction.perform(self)
 end
+function TestAction:forceStop()
+    log("Force stop " .. self.no)
+    self.action:forceStop()
+end
 
 function TestAction:stop()
-    log("stop")
+    log("stop " .. self.no)
     ISBaseTimedAction.stop(self)
 end
 
-function TestAction:new(character)
+function TestAction:new(character, no)
     log("new")
 
     local o = {}
@@ -53,8 +57,9 @@ function TestAction:new(character)
     o.stopOnWalk = true
     o.stopOnRun = true
     o.character = character
-    o.maxTime = 50
+    o.maxTime = 5000
     o.performNo = 0
     o.updateNo = 0
+    o.no = no
     return o
 end

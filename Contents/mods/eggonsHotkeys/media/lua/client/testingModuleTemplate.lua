@@ -45,20 +45,27 @@ end
 local function testFunction()
     local player = getPlayer()
     local inv = player:getInventory()
-    local testAct = TestAction:new(player)
-    ISTimedActionQueue.add(testAct)
+    local testAct = TestAction:new(player, 1)
+    local testAct2 = TestAction:new(player, 2)
+    local item = player:getPrimaryHandItem()
+    printFuckingNormalObject(items)
+
+    -- ISTimedActionQueue.add(testAct)
+    -- ISTimedActionQueue.add(testAct2)
+
+    -- printFuckingNormalObject(getPlayerLoot(0))
     -- local items = inv:getItemsFromType("Lighter")
     -- local lighter = inv:getItemFromType("Lighter")
-    local cigarettes = inv:getFirstTypeRecurse("Cigarettes")
+    -- local cigarettes = inv:getFirstTypeRecurse("Cigarettes")
 
     -- inv:DoRemoveItem(lighter)
     -- ISInventoryPaneContextMenu.eatItem(cigarettes, 1, 0)
 
-    local carriedContainers = getCarriedContainers()
-    local lowestUseItem = findLowestUseItemOfType("Lighter", carriedContainers, false)
-    if not lowestUseItem then
-        lowestUseItem = findLowestUseItemOfType("Matches", carriedContainers, false)
-    end
+    -- local carriedContainers = getCarriedContainers()
+    -- local lowestUseItem = findLowestUseItemOfType("Lighter", carriedContainers, false)
+    -- if not lowestUseItem then
+    --     lowestUseItem = findLowestUseItemOfType("Matches", carriedContainers, false)
+    -- end
 end
 
 local function keyPressedHandler(key)
@@ -88,3 +95,29 @@ function printFuckingNormalObject(uselessAndPatheticLuaTable, message)
     result = result .. "\n}"
     print(result)
 end
+
+local function callback(item)
+    -- print("fullType", item:getFullType())
+    -- printFuckingNormalObject(item:getMediaData(), "WTF is it?")
+    -- print("media id", item:getMediaData():getId())
+    -- print("media getCat", item:getMediaData():getCategory())
+    -- print("is media", item:isRecordedMedia())
+    -- print("media type", item:getMediaData():getMediaType())
+    -- print("getTitleEN", item:getTitleEN())
+    -- print("getMediaType", item:getMediaType())
+    -- print("getMediaCategory", item:getMediaCategory())
+    -- print("static model", item:getStaticModel()) -- nil
+    -- print("static model", item:getSaveType()) -- number
+end
+
+local function addItemOption(player, context, items)
+    local item
+    if items[1].items then
+        item = items[1].items[1]
+    else -- if right-clicked in hotbar
+        item = items[1]
+    end
+    local Description = "Test action"
+    context:addOption(Description, item, callback)
+end
+Events.OnFillInventoryObjectContextMenu.Add(addItemOption)
