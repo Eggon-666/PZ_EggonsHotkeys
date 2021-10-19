@@ -39,15 +39,21 @@ EHK.smoke = function()
     ISTimedActionQueue.add(transferFireSource)
 end
 
--- for fullType, _ in pairs(coś) do
--- 1 Czy posiadamy instancję fullType?
+-- for fullType, _ in pairs(fireSourceDict) do
+-- 1 Czy posiadamy instancję fullType dla fireSource?
 -- jeśli NIE NEXT FULLTYPE!!!
 -- jeśli tak
 -- -- znajdź minimalną ilość
 -- -- usuń wszystkie inne z main inventory
 -- -- Queue smoke
+-- -- Queue repack
 -- -- Queue Reappear
+-- -- break
 -- oprogramować ON STOP dla reappearAction
+-- -- jeśli nie - komunikat
+
+-- for fullType, _ in pairs(cigarettesDict) do
+-- 2 czy posiadamy instancję cigarettes - steps j.w.
 
 -- czy
 -- 1. Czy jest zapalniczka w main inventory?
