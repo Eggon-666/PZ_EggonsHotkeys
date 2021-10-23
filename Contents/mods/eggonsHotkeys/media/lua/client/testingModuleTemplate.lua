@@ -77,8 +77,6 @@ local function testFunction()
     -- end
 end
 
-print("WTF?!")
-
 local function keyPressedHandler(key)
     print("key: ", key)
     if key ~= 156 then -- 156 = ENTER
