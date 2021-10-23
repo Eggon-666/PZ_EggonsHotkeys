@@ -10,26 +10,33 @@ local lightDialogues = {
     [3] = "Gotta search some corpses for a lighter..."
 }
 
+function getFirstItem(dictionary, inv)
+    local output
+    for i, fullType in ipairs(dictionary) do
+        output = inv:getFirstTypeRecurse(fullType)
+        if output then
+            break
+        end
+    end
+    return output
+end
+
 EHK.smoke = function()
     local player = getPlayer()
     local inv = player:getInventory()
-    local cigarettes = inv:getFirstTypeRecurse("Cigarettes")
     local dialogueNo, fireSourceContainer
+    local cigarettes = getFirstItem(EHK.cigarettes, inv)
     if not cigarettes then
         dialogueNo = ZombRand(3) + 1
         player:Say(cigarettesDialogues[dialogueNo])
         return
     end
 
-    local fireSource
-    fireSource = inv:getFirstTypeRecurse("Matches")
+    local fireSource = getFirstItem(EHK.fireSources, inv)
     if not fireSource then
-        fireSource = inv:getFirstTypeRecurse("Lighter")
-        if not fireSource then
-            dialogueNo = ZombRand(3) + 1
-            player:Say(lightDialogues[dialogueNo])
-            return
-        end
+        dialogueNo = ZombRand(3) + 1
+        player:Say(lightDialogues[dialogueNo])
+        return
     end
 
     fireSourceContainer = fireSource:getContainer()

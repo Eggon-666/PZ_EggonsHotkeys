@@ -19,5 +19,5 @@ mybind.key = 211
 table.insert(keyBinding, mybind)
 mybind = {}
 mybind.value = "smoke"
-mybind.key = 46
+mybind.key = 37
 table.insert(keyBinding, mybind)

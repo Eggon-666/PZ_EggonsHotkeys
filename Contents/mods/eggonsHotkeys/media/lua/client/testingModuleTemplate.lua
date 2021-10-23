@@ -45,10 +45,19 @@ end
 local function testFunction()
     local player = getPlayer()
     local inv = player:getInventory()
-    local testAct = TestAction:new(player, 1)
-    local testAct2 = TestAction:new(player, 2)
-    local item = player:getPrimaryHandItem()
-    printFuckingNormalObject(items)
+    -- inv:AddItem("SM.Matches")
+    -- for i, fullType in pairs(EHK.smokerCigarettes) do
+    --     inv:AddItem(fullType)
+    -- end
+    -- printFuckingNormalObject(inv, "inventory")
+    printFuckingNormalObject(EHK.fireSources[3], "result")
+    local smokerMatches = getScriptManager():getItem("SM.Matches")
+    print("type of smoker matches", type(smokerMatches))
+
+    -- local testAct = TestAction:new(player, 1)
+    -- local testAct2 = TestAction:new(player, 2)
+    -- local item = player:getPrimaryHandItem()
+    -- printFuckingNormalObject(items)
 
     -- ISTimedActionQueue.add(testAct)
     -- ISTimedActionQueue.add(testAct2)
@@ -67,6 +76,8 @@ local function testFunction()
     --     lowestUseItem = findLowestUseItemOfType("Matches", carriedContainers, false)
     -- end
 end
+
+print("WTF?!")
 
 local function keyPressedHandler(key)
     print("key: ", key)
