@@ -23,7 +23,7 @@ local function getContainers()
     return containerList
 end
 
-function getFirstItem(dictionary, inv, useKey)
+function getFirstItem(dictionary, inv, smokingItemType)
     local output
     for i, fullType in pairs(dictionary) do
         local identifier
@@ -33,8 +33,10 @@ function getFirstItem(dictionary, inv, useKey)
             identifier = fullType
         end
         output = inv:getFirstTypeRecurse(identifier)
-        if output then
+        if output and (smokingItemType ~= "cigarettes" or output.getBaseHunger) then
             break
+        else
+            output = nil
         end
     end
     return output
@@ -44,14 +46,9 @@ EHK.smoke = function()
     local player = getPlayer()
     local inv = player:getInventory()
     local dialogueNo, fireSourceContainer
-    local cigarettes = getFirstItem(EHK.cigarettes, inv)
-    local cigarettesPack
-    if cigarettes and not cigarettes.getBaseHunger then
-        cigarettesPack = cigarettes
-        cigarettes = nil
-    end
+    local cigarettes = getFirstItem(EHK.cigarettes, inv, "cigarettes")
     if not cigarettes then
-        cigarettesPack = cigarettesPack or getFirstItem(EHK.cigarettesPacks, inv, true)
+        local cigarettesPack = getFirstItem(EHK.cigarettesPacks, inv)
         if not cigarettesPack then
             dialogueNo = ZombRand(3) + 1
             player:Say(cigarettesDialogues[dialogueNo])
@@ -68,6 +65,8 @@ EHK.smoke = function()
                         local ingredientName = recipe:getSource():get(0):getItems():get(0)
                         if ingredientName == cigarettesPack:getFullType() then
                             break
+                        else
+                            recipe = nil
                         end
                     else
                         recipe = nil
@@ -96,9 +95,14 @@ EHK.smoke = function()
     end
 
     fireSourceContainer = fireSource:getContainer()
-    ISInventoryPaneContextMenu.eatItem(cigarettes, 1, 0)
-    local transferFireSource = ISInventoryTransferAction:new(player, fireSource, inv, fireSourceContainer)
-    ISTimedActionQueue.add(transferFireSource)
+    print("cigarettes", cigarettes)
+    if cigarettes then
+        ISInventoryPaneContextMenu.eatItem(cigarettes, 1, 0)
+        local transferFireSource = ISInventoryTransferAction:new(player, fireSource, inv, fireSourceContainer)
+        ISTimedActionQueue.add(transferFireSource)
+    else
+        print("ERROR! Cigarettes not obtained!")
+    end
 end
 
 -- for fullType, _ in pairs(fireSourceDict) do

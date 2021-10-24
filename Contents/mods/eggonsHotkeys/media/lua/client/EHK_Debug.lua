@@ -11,7 +11,9 @@ local function addItems()
     -- end
     testItem = getScriptManager():getItem(EHK.cigarettes[8])
     if testItem and type(testItem) ~= "string" then
-        inv:AddItem(EHK.cigarettes[8])
+        inv:AddItem(EHK.cigarettes[1])
+        inv:AddItem(EHK.cigarettes[1])
+        inv:AddItem(EHK.cigarettesPacks[3])
         inv:AddItem("CigaretteMod.CigaretteCarton")
     end
 end

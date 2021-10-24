@@ -20,10 +20,11 @@ EHK.cigarettes = {
 }
 
 EHK.cigarettesPacks = {
-    ["SM.SMPack"] = "Take Cigarette from Pack",
-    ["SM.SMPackLight"] = "Take Cigarette from Pack",
-    ["SM.SMPackMenthol"] = "Take Cigarette from Pack",
-    ["SM.SMPackGold"] = "Take Cigarette from Pack"
+    [1] = "SM.SMPack",
+    [2] = "SM.SMPackLight",
+    [3] = "SM.SMPackMenthol",
+    [4] = "SM.SMPackGold",
+    [5] = "Base.Cigarettes" -- just to trigger prompt to unpack cigs for Carton mod
 }
 
 EHK.validRecipes = {
