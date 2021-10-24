@@ -45,14 +45,27 @@ end
 local function testFunction()
     local player = getPlayer()
     local inv = player:getInventory()
+    local testArr = {"A", "B"}
+    print("Test arr len ", #testArr)
+
+    -- for i, pack in ipairs(EHK.cigarettesPacks) do
+    --     pack = getScriptManager():getItem(pack)
+    --     local evorecipe =
+    --         RecipeManager.getEvolvedRecipe(pack, player, ISInventoryPaneContextMenu.getContainers(player), false)
+    --     print("pack: ", pack)
+    --     if evorecipe and evorecipe:size() > 0 then
+    --         for y = 0, evorecipe:size() - 1 do
+    --             local evo = evorecipe:get(y)
+    --             printFuckingNormalObject(evo, "evo")
+    --             print("evo:getName()", evo:getName())
+    --         end
+    --     end
+    -- end
     -- inv:AddItem("SM.Matches")
     -- for i, fullType in pairs(EHK.smokerCigarettes) do
     --     inv:AddItem(fullType)
     -- end
     -- printFuckingNormalObject(inv, "inventory")
-    printFuckingNormalObject(EHK.fireSources[3], "result")
-    local smokerMatches = getScriptManager():getItem("SM.Matches")
-    print("type of smoker matches", type(smokerMatches))
 
     -- local testAct = TestAction:new(player, 1)
     -- local testAct2 = TestAction:new(player, 2)

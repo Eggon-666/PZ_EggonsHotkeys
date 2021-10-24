@@ -9,11 +9,30 @@ local lightDialogues = {
     [2] = "Where are my matches?",
     [3] = "Gotta search some corpses for a lighter..."
 }
+local function getContainers()
+    -- get all the surrounding inventory of the player, gonna check for the item in them too
+    local containerList = ArrayList.new()
+    local c = {}
+    for i, v in ipairs(getPlayerInventory(0).inventoryPane.inventoryPage.backpacks) do
+        containerList:add(v.inventory)
+        c[#c + 1] = v.inventory
+    end
+    -- for i, v in ipairs(getPlayerLoot(0).inventoryPane.inventoryPage.backpacks) do
+    --     containerList:add(v.inventory)
+    -- end
+    return containerList
+end
 
-function getFirstItem(dictionary, inv)
+function getFirstItem(dictionary, inv, useKey)
     local output
-    for i, fullType in ipairs(dictionary) do
-        output = inv:getFirstTypeRecurse(fullType)
+    for i, fullType in pairs(dictionary) do
+        local identifier
+        if useKey then
+            identifier = i
+        else
+            identifier = fullType
+        end
+        output = inv:getFirstTypeRecurse(identifier)
         if output then
             break
         end
@@ -26,10 +45,47 @@ EHK.smoke = function()
     local inv = player:getInventory()
     local dialogueNo, fireSourceContainer
     local cigarettes = getFirstItem(EHK.cigarettes, inv)
+    local cigarettesPack
+    if cigarettes and not cigarettes.getBaseHunger then
+        cigarettesPack = cigarettes
+        cigarettes = nil
+    end
     if not cigarettes then
-        dialogueNo = ZombRand(3) + 1
-        player:Say(cigarettesDialogues[dialogueNo])
-        return
+        cigarettesPack = cigarettesPack or getFirstItem(EHK.cigarettesPacks, inv, true)
+        if not cigarettesPack then
+            dialogueNo = ZombRand(3) + 1
+            player:Say(cigarettesDialogues[dialogueNo])
+            return
+        else
+            -- print("pack found ", cigarettesPack)
+            local itemRecipes =
+                RecipeManager.getUniqueRecipeItems(pack, player, ISInventoryPaneContextMenu.getContainers(player))
+            local recipe
+            if itemRecipes:size() > 0 then
+                for i = 0, itemRecipes:size() - 1 do
+                    recipe = itemRecipes:get(i)
+                    if EHK.validRecipes[recipe:getName()] then
+                        local ingredientName = recipe:getSource():get(0):getItems():get(0)
+                        if ingredientName == cigarettesPack:getFullType() then
+                            break
+                        end
+                    else
+                        recipe = nil
+                    end
+                end
+            end
+            if recipe then
+                -- print("Recipe to be used: ", recipe:getName())
+                -- print(recipe)
+                cigarettes = RecipeManager.PerformMakeItem(recipe, cigarettesPack, player, getContainers())
+                -- printFuckingNormalObject(cigarettes, "cigarettes")
+                inv:AddItem(cigarettes)
+            else
+                print("No recipe found!")
+                player:Say("Must remember to unpack cigarettes!")
+                return
+            end
+        end
     end
 
     local fireSource = getFirstItem(EHK.fireSources, inv)
@@ -40,7 +96,6 @@ EHK.smoke = function()
     end
 
     fireSourceContainer = fireSource:getContainer()
-
     ISInventoryPaneContextMenu.eatItem(cigarettes, 1, 0)
     local transferFireSource = ISInventoryTransferAction:new(player, fireSource, inv, fireSourceContainer)
     ISTimedActionQueue.add(transferFireSource)
