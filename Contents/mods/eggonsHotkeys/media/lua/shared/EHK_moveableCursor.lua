@@ -14,9 +14,19 @@ end
 
 EHK.triggerAction = function(keyPressed)
     -- print(keyPressed)
-    local SmokingKeyCode = tostring(getCore():getKey("smoke"))
-    if tostring(keyPressed) == SmokingKeyCode then
-        EHK.smoke()
+    local ActionForKey = {
+        [tostring(getCore():getKey("smoke"))] = EHK.smoke,
+        [tostring(getCore():getKey("betaBlockers"))] = EHK.takeBetaBlockers,
+        [tostring(getCore():getKey("painKillers"))] = EHK.takePainKillers
+    }
+    -- local SmokingKeyCode = tostring(getCore():getKey("smoke"))
+    -- local BetaBlockersKeyCode = tostring(getCore():getKey("betaBlockers"))
+    -- local PainKillersKeyCode = tostring(getCore():getKey("painKillers"))
+    local action = ActionForKey[tostring(keyPressed)]
+    -- if tostring(keyPressed) == SmokingKeyCode then
+    --     EHK.smoke()
+    if action then
+        action()
     else
         local FurnitureKeyCodes = {
             pickup = tostring(getCore():getKey("pickup")),

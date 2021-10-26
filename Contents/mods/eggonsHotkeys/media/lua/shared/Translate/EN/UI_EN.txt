@@ -4,5 +4,7 @@ UI_EN = {
     UI_optionscreen_binding_place = "Place",
     UI_optionscreen_binding_rotate = "Rotate",
     UI_optionscreen_binding_scrap = "Dismantle",
-    UI_optionscreen_binding_smoke = "Smoke"
+    UI_optionscreen_binding_smoke = "Smoke",
+    UI_optionscreen_binding_betaBlockers = "Take beta blockers",
+    UI_optionscreen_binding_painKillers = "Take pain painKillers"
 }

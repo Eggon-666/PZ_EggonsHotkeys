@@ -21,3 +21,11 @@ mybind = {}
 mybind.value = "smoke"
 mybind.key = 37
 table.insert(keyBinding, mybind)
+mybind = {}
+mybind.value = "betaBlocker"
+-- mybind.key =
+table.insert(keyBinding, mybind)
+mybind = {}
+mybind.value = "painKillers"
+-- mybind.key =
+table.insert(keyBinding, mybind)
