@@ -1,24 +1,27 @@
 version=1
 id=2289454303
 title=Eggon's Hotkeys
-description=This mod introduces hotkeys for actions on moveables (furniture) - pick up, place, dismantle & rotate and now also for SMOKIN'! No more excessive clicking!
+description=Now added Pain killers, Beta blockers and Smoking!
+description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration!
+description=The smoking and pills hotkeys work even if respective items are in a bag and they packs them again to the relevant bags after action is finished! 
 description=
-description=Added support for Smoker mod (now also taking cigs from open packs) and Cigarette Carton Mod (need to open pack first).
+description=[b]DEFAULT BINDINGS (can be changed in the key bindings menu!):[/b]
+description=Pick up - press: [ARROW UP]
+description=Place - press: [ARROW DOWN]
+description=Dismantle - press: [DELETE]
+description=Rotate - press: [ARROW RIGHT]
+description=Smoke - press: [K] (for smoKe)
+description=Take Beta blockers - press: [']
+description=Take Pain killers - press: [\]
 description=
-description=[b]You can choose the key bindings in the game's hotkeys menu![/b] Thanks to @ThereforeAliens for the know-how, and to @NoctisFalco for previous customization idea. Default bindings are the following:
-description=
-description=Pick up - press: ARROW UP
-description=Place - press: ARROW DOWN
-description=Dismantle - press: DELETE
-description=Rotate - press: ARROW RIGHT
-description=Smoke - press: K (for smoKe)
-description=
-description=The smoking shortcut works even if items are in a bag and it packs them again to the relevant bags after smoking is finished! Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help.
-description=
-description=I play on build 41, don't know if it works on earlier builds. It might. If you tried and know if it works or not, please let me know.
-description=
-description=If you like this mod, hit the like button and check out my other [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]mods![/url] :)
-description=
-description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings. 
+description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
+description=
+description=I play on build 41, don't know if it works on earlier builds. It might. If you tried and know if it works or not, please let me know.
+description=
+description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
+description=
+description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=
 tags=Build 41;Interface
 visibility=public
