@@ -19,13 +19,13 @@ mybind.key = 211
 table.insert(keyBinding, mybind)
 mybind = {}
 mybind.value = "smoke"
-mybind.key = 37
+mybind.key = 37 -- "K"
 table.insert(keyBinding, mybind)
 mybind = {}
-mybind.value = "betaBlocker"
--- mybind.key =
+mybind.value = "betaBlockers"
+mybind.key = 40 -- "'"
 table.insert(keyBinding, mybind)
 mybind = {}
 mybind.value = "painKillers"
--- mybind.key =
+mybind.key = 43 -- "\"
 table.insert(keyBinding, mybind)

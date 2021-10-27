@@ -4,11 +4,13 @@ function EHK.takePills(fullType)
     local player = getPlayer()
     local inv = player:getInventory()
     local pills = inv:getFirstTypeRecurse(fullType)
-    local sourceContainer = pills:getContainer()
-    ISInventoryPaneContextMenu.takePill(pills, 0)
     if pills then
+        local sourceContainer = pills:getContainer()
+        ISInventoryPaneContextMenu.takePill(pills, 0)
         local transferPillsBack = ISInventoryTransferAction:new(player, pills, inv, sourceContainer)
         ISTimedActionQueue.add(transferPillsBack)
+    else
+        player:Say("I'm out of pills! Goddamn it!")
     end
 end
 
