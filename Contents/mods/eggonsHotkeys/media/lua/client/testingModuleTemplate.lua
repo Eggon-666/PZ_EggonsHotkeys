@@ -45,8 +45,14 @@ end
 local function testFunction()
     local player = getPlayer()
     local inv = player:getInventory()
-    local testArr = {"A", "B"}
-    print("Test arr len ", #testArr)
+
+    -- print("Key value for painKillers from the game: ", tostring(getCore():getKey("painKillers")))
+
+    -- local mods = getActivatedMods()
+    -- for i = 0, mods:size() - 1 do
+    --     local mod = mods:get(i)
+    --     printFuckingNormalObject(mod, "Mod from getActivatedMods()")
+    -- end
 
     -- for i, pack in ipairs(EHK.cigarettesPacks) do
     --     pack = getScriptManager():getItem(pack)
