@@ -1,20 +1,27 @@
 version=1
 id=2289454303
 title=Eggon's Hotkeys
-description=Now added Pain killers, Beta blockers and Smoking!
+description=* Now added Pain killers, Beta blockers and Smoking! *
 description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration!
-description=The smoking and pills hotkeys work even if respective items are in a bag and they packs them again to the relevant bags after action is finished! 
-description=
-description=[b]DEFAULT BINDINGS (can be changed in the key bindings menu!):[/b]
-description=Pick up - press: [ARROW UP]
-description=Place - press: [ARROW DOWN]
-description=Dismantle - press: [DELETE]
-description=Rotate - press: [ARROW RIGHT]
-description=Smoke - press: [K] (for smoKe)
-description=Take Beta blockers - press: [']
-description=Take Pain killers - press: [\]
-description=
-description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings. 
+description=
+description=The smoking and pills hotkeys work even if respective items are in a bag and they pack them again to the relevant bags after action is finished! 
+description=
+description=[b]DEFAULT BINDINGS (can be changed in the key bindings menu!):[/b]
+description=Pick up - press: [ARROW UP]
+description=Place - press: [ARROW DOWN]
+description=Dismantle - press: [DELETE]
+description=Rotate - press: [ARROW RIGHT]
+description=Smoke - press: [K] (for smoKe)
+description=Take Beta blockers - press: [']
+description=Take Pain killers - press: [\]
+description=
+description=[b]Compatibility[/b]
+description=Smoking action is compatible with:
+description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
+description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
+description=
+description=[b]Credits:[/b]
+description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings. 
 description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
 description=
 description=I play on build 41, don't know if it works on earlier builds. It might. If you tried and know if it works or not, please let me know.
