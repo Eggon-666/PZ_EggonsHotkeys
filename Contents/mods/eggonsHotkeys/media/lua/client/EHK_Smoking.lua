@@ -80,7 +80,7 @@ EHK.smoke = function()
                 -- printFuckingNormalObject(cigarettes, "cigarettes")
                 inv:AddItem(cigarettes)
             else
-                print("No recipe found!")
+                -- print("No recipe found!")
                 player:Say("Must remember to unpack cigarettes!")
                 return
             end
@@ -95,7 +95,7 @@ EHK.smoke = function()
     end
 
     fireSourceContainer = fireSource:getContainer()
-    print("cigarettes", cigarettes)
+    -- print("cigarettes", cigarettes)
     if cigarettes then
         ISInventoryPaneContextMenu.eatItem(cigarettes, 1, 0)
         local transferFireSource = ISInventoryTransferAction:new(player, fireSource, inv, fireSourceContainer)
