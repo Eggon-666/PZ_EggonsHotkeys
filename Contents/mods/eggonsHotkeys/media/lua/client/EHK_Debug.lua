@@ -30,6 +30,20 @@ local function getContainers()
     -- end
     return containerList
 end
+
+local function testFn(item)
+    local player = getPlayer()
+    local inv = player:getInventory()
+    inv:AddItem("Base.HandTorch")
+
+    local SHI = player:getSecondaryHandItem()
+    local PHI = player:getPrimaryHandItem()
+    print(SHI)
+    print(PHI)
+
+    -- item:setUseDelta(1)
+    -- item:setDelta(0)
+end
 local function printEvos(item)
     local player = getPlayer()
     local containers = ISInventoryPaneContextMenu.getContainers(player)
@@ -51,7 +65,7 @@ local function addDebugOptions(player, context, items)
     end
 
     context:addOption("Add items", item, addItems)
-    context:addOption("Print evos", item, printEvos)
-    -- context:addOption("Test", item, testFn)
+    -- context:addOption("Print evos", item, printEvos)
+    context:addOption("Test", item, testFn)
 end
 Events.OnFillInventoryObjectContextMenu.Add(addDebugOptions)
