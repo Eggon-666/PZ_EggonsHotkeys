@@ -7,6 +7,5 @@ UI_EN = {
     UI_optionscreen_binding_smoke = "Smoke",
     UI_optionscreen_binding_betaBlockers = "Take beta blockers",
     UI_optionscreen_binding_painKillers = "Take pain killers",
-    UI_optionscreen_binding_flashlight = "Flashlight",
     UI_optionscreen_binding_sledgehammer = "Sledgehammer"
 }
