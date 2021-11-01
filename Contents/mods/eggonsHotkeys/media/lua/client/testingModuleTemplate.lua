@@ -97,7 +97,7 @@ local function testFunction()
 end
 
 local function keyPressedHandler(key)
-    print("key: ", key)
+    -- print("key: ", key)
     if key ~= 156 then -- 156 = ENTER
         return
     end
