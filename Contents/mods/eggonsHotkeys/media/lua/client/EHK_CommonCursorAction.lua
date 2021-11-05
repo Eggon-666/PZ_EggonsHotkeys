@@ -31,3 +31,5 @@ function CursorAction:new(character, item, action, maxTime)
 end
 
 EHK.CursorAction = CursorAction
+
+print("EHK.CursorAction ", EHK.CursorAction)

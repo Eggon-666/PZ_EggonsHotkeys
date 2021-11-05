@@ -32,14 +32,26 @@ local function getContainers()
 end
 
 local function testFn(item)
+    print("Test function")
     local player = getPlayer()
     local inv = player:getInventory()
-    inv:AddItem("Base.HandTorch")
 
-    local SHI = player:getSecondaryHandItem()
-    local PHI = player:getPrimaryHandItem()
-    print(SHI)
-    print(PHI)
+    -- local umbrella = inv:AddItem("UmbrellaBlue")
+    -- if umbrella then
+    --     ISInventoryPaneContextMenu.equipWeapon(umbrella, false, false, player:getPlayerNum())
+    --     umbrella:setActivated(true)
+    -- end
+
+    local tags = item:getTags()
+
+    local count = tags:size()
+
+    print("count: ", count)
+    if count > 0 then
+        for i = 0, count - 1 do
+            print("TAG: ", tags:get(i))
+        end
+    end
 
     -- item:setUseDelta(1)
     -- item:setDelta(0)
