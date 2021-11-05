@@ -26,6 +26,18 @@ EHK.keyConfigs = {
     painKillers = {
         action = EHK.takePainKillers,
         keyCode = 43
+    },
+    sledgehammer = {
+        action = EHK.equipSledge,
+        keyCode = 0
+    },
+    chopWithAxe = {
+        action = EHK.equipAxe,
+        keyCode = 0
+    },
+    umbrella = {
+        action = EHK.umbrella,
+        keyCode = 0
     }
 }
 
