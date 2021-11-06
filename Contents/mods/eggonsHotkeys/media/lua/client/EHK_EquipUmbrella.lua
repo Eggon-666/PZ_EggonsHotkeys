@@ -21,23 +21,26 @@ local function switchUmbrella(umbrella, equip)
     local fullType = umbrella:getFullType()
     local isOpened = umbrella:isProtectFromRainWhileEquipped()
     local descendant
+    local switchedUmbrella
     if isOpened then
         descendant = openedUmbrellas[fullType]
     else
         descendant = closedUmbrellas[fullType]
     end
-    local switchedUmbrella = inv:AddItem(descendant)
+    switchedUmbrella = inv:AddItem(descendant)
+    print("Adding switched item to inv")
     if SHI == umbrella then
         ISTimedActionQueue.add(ISUnequipAction:new(player, SHI, 0))
-        local openAction =
+        local removeAction =
             EHK.UniversalAction:new(
             player,
             umbrella,
             function(self)
+                print("removing SHI")
                 inv:DoRemoveItem(SHI)
             end
         )
-        ISTimedActionQueue.add(openAction)
+        ISTimedActionQueue.add(removeAction)
     end
     if equip then
         ISTimedActionQueue.add(ISEquipWeaponAction:new(player, switchedUmbrella, 50, false, false))
@@ -46,8 +49,15 @@ local function switchUmbrella(umbrella, equip)
 end
 
 local function predicateUmbrella(item)
-    local output = item:getBreakSound() == "UmbrellaBreak" or item:isProtectFromRainWhileEquipped()
-    print("Is item " .. item:getDisplayName() .. " umbrella? ", output)
+    local fullType = item:getFullType()
+    local output = false
+    if openedUmbrellas[fullType] or closedUmbrellas[fullType] then
+        output = true
+    end
+    -- item:getBreakSound() == "UmbrellaBreak" or item:isProtectFromRainWhileEquipped()
+    -- print("Is item " .. item:getFullType() .. " umbrella? ", output)
+    -- print("openedUmbrellas[fullType] ", openedUmbrellas[fullType])
+    -- print("closedUmbrellas[fullType] ", closedUmbrellas[fullType])
     return output
 end
 
@@ -63,10 +73,14 @@ function EHK.equipUmbrella()
     local SHI = player:getSecondaryHandItem()
 
     if SHI and predicateUmbrella(SHI) then
+        print("SHI umbrella detectd")
+
         switchedUmbrella = switchUmbrella(SHI)
-        if SHI:isProtectFromRainWhileEquipped() then -- equipped and open
+        if openedUmbrellas[SHI:getFullType()] then -- equipped and open
+            print("SHI umbrella is opened")
             local previousItem = PMD.EHK.previousItem
             if previousItem then
+                print("previous item present")
                 ISInventoryPaneContextMenu.equipWeapon(
                     previousItem,
                     PMD.EHK.previousWasInBothHands,
@@ -74,14 +88,22 @@ function EHK.equipUmbrella()
                     player:getPlayerNum()
                 )
             end
-            if PMD.EHK.previousContainer and switchedUmbrella then
+            if PMD.EHK.previousContainer then
+                print("previous container present")
                 local repack = ISInventoryTransferAction:new(player, switchedUmbrella, inv, PMD.EHK.previousContainer)
                 ISTimedActionQueue.add(repack)
             end
             PMD.EHK = {}
         else -- equipped and closed
-            -- instantly equip switched(opened) umbrella
-            ISTimedActionQueue.add(ISEquipWeaponAction:new(player, umbrella, 10, false, false))
+            print("SHI umbrella is closed")
+            local PHI = player:getPrimaryHandItem()
+
+            if SHI == PHI then
+                print("Primary umbrella detected")
+                -- instantly equip switched(opened) umbrella
+                ISTimedActionQueue.add(ISUnequipAction:new(player, PHI, 0))
+            end
+            ISTimedActionQueue.add(ISEquipWeaponAction:new(player, switchedUmbrella, 10, false, false))
         end
     else
         local umbrella = inv:getFirstEvalRecurse(predicateUmbrella)
@@ -107,6 +129,15 @@ function EHK.equipUmbrella()
                     end
                 )
                 ISTimedActionQueue.add(openAction)
+                local removeOldAction =
+                    EHK.UniversalAction:new(
+                    player,
+                    umbrella,
+                    function(self)
+                        inv:DoRemoveItem(umbrella)
+                    end
+                )
+                ISTimedActionQueue.add(removeOldAction)
             else
                 print("moving opened umbrella")
                 print("two handed ", umbrella:isTwoHandWeapon())
