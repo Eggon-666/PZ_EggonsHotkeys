@@ -13,6 +13,8 @@ local closedUmbrellas = {
 
 local function switchUmbrella(umbrella, equip)
     equip = equip or false
+    print("umbrella? ", umbrella)
+    print("Equip umbrella? ", equip)
     local player = getPlayer()
     local inv = player:getInventory()
     local SHI = player:getSecondaryHandItem()
@@ -38,7 +40,7 @@ local function switchUmbrella(umbrella, equip)
         ISTimedActionQueue.add(openAction)
     end
     if equip then
-        ISTimedActionQueue.add(ISEquipWeaponAction:new(player, descendant, 50, false, false))
+        ISTimedActionQueue.add(ISEquipWeaponAction:new(player, switchedUmbrella, 50, false, false))
     end
     return switchedUmbrella
 end
@@ -88,7 +90,11 @@ function EHK.equipUmbrella()
             PMD.EHK.previousContainer = umbrella:getContainer()
             PMD.EHK.previousItem = SHI
             PMD.EHK.previousWasInBothHands = SHI and SHI == PHI
+            print("FullType: ", umbrella:getFullType())
+
             if closedUmbrellas[umbrella:getFullType()] then
+                -- ISTimedActionQueue.add(openAction)
+                print("Move to inv closed umbrella")
                 local moveToInventory = ISInventoryTransferAction:new(player, umbrella, PMD.EHK.previousContainer, inv)
                 ISTimedActionQueue.add(moveToInventory)
                 -- problem, że jak otarte w bag to może zostać otwarty po cancel action
@@ -101,13 +107,11 @@ function EHK.equipUmbrella()
                     end
                 )
                 ISTimedActionQueue.add(openAction)
-
-                print("starting first")
             else
+                print("moving opened umbrella")
+                print("two handed ", umbrella:isTwoHandWeapon())
+                ISInventoryPaneContextMenu.equipWeapon(umbrella, false, false, player:getPlayerNum())
             end
-            print("First finished")
-            ISTimedActionQueue.add(ISEquipWeaponAction:new(player, umbrella, 50, false, false))
-            print("Second finished")
         else
             player:Say("I must have left the umbrella home.")
         end
