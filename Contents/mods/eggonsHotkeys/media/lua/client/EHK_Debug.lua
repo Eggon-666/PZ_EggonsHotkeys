@@ -36,11 +36,11 @@ local function testFn(item)
     local player = getPlayer()
     local inv = player:getInventory()
 
-    -- local umbrella = inv:AddItem("UmbrellaBlue")
-    -- if umbrella then
-    --     ISInventoryPaneContextMenu.equipWeapon(umbrella, false, false, player:getPlayerNum())
-    --     umbrella:setActivated(true)
-    -- end
+    local umbrella = inv:AddItem("UmbrellaBlue")
+    if umbrella then
+        ISInventoryPaneContextMenu.equipWeapon(umbrella, false, false, player:getPlayerNum())
+        umbrella:setActivated(true)
+    end
 
     local tags = item:getTags()
 

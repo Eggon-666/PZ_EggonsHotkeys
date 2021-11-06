@@ -1,7 +1,8 @@
 local axes = {
     [1] = "Base.WoodAxe",
     [2] = "Base.Axe",
-    [3] = "Base.HandAxe"
+    [3] = "Base.HandAxe",
+    [4] = "Base.AxeStone"
 }
 
 local function axeCursorInit(self)
@@ -20,28 +21,30 @@ function EHK.equipAxe()
 
     local PHI = player:getPrimaryHandItem()
 
-    if predicateChopTree(PHI) then
+    if PHI and predicateChopTree(PHI) then
         axe = PHI
     else
-        -- zamienić na searcz by best type
-        -- axe = inv:getFirstEvalRecurse(predicateChopTree)
+        for i, fullType in ipairs(axes) do
+            axe = inv:getFirstTypeRecurse(fullType)
+            if axe and not axe:isBroken() then
+                break
+            else
+                axe = nil -- reset if broken
+            end
+        end
+        if not axe then -- hail mary for modded axe
+            axe = inv:getFirstEvalRecurse(predicateChopTree)
+        end
     end
 
     if axe then
         if PHI ~= axe then
             ISInventoryPaneContextMenu.equipWeapon(axe, true, axe:isTwoHandWeapon(), player:getPlayerNum())
         end
-        local cursorAction = EHK.CursorAction:new(player, axe, axeCursorInit)
-        ISTimedActionQueue.add(cursorAction)
+        local UniversalAction = EHK.UniversalAction:new(player, axe, axeCursorInit)
+        ISTimedActionQueue.add(UniversalAction)
+    else
+        player:Say("Where have I put my axe?")
+        return
     end
 end
-
--- local keyConfigs = {
---     sledgehammer = {
---         action = equipSledge,
---         keyCode = 0
---     }
--- }
--- if EHK_Plugin then
---     EHK_Plugin:AddConfigs(keyConfigs)
--- end

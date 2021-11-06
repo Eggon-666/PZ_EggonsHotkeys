@@ -3,12 +3,16 @@ local sledgehammers = {
     ["Base.Sledgehammer2"] = true
 }
 
-local function sledgeCursorInit(self)
+local function demolishCursorInit(self)
     local bo = ISDestroyCursor:new(self.character, false, self.item)
     getCell():setDrag(bo, bo.player)
 end
 
-function EHK.equipSledge()
+local function predicatSledgehammer(item)
+    return sledgehammers[item:getFullType()] and not item:isBroken()
+end
+
+function EHK.equipSledgehammer()
     local player = getPlayer()
     local inv = player:getInventory()
 
@@ -17,33 +21,33 @@ function EHK.equipSledge()
     local equippedPrimary = false
     local equippedSecondary = false
 
-    local sledge
-    if PHI and sledgehammers[PHI:getFullType()] then
-        sledge = PHI
+    local sledgehammer
+    if PHI and sledgehammers[PHI:getFullType()] and not PHI:isBroken() then
+        sledgehammer = PHI
     else
         -- znajdź sledge z listy
         for fullType, _ in pairs(sledgehammers) do
-            sledge = inv:getFirstTypeRecurse(fullType)
-            if sledge then
+            sledgehammer = inv:getFirstEvalRecurse(predicatSledgehammer)
+            if sledgehammer then
                 break
             end
         end
     end
-    if sledge and sledge ~= PHI then
-        ISInventoryPaneContextMenu.equipWeapon(sledge, true, true, player:getPlayerNum()) --(weapon, primary, twoHands, player)
-    elseif sledge and sledge == PHI then
+    if sledgehammer and sledgehammer ~= PHI then
+        ISInventoryPaneContextMenu.equipWeapon(sledgehammer, true, true, player:getPlayerNum()) --(weapon, primary, twoHands, player)
+    elseif sledgehammer and sledgehammer == PHI then
         -- nufin
     else
         player:Say("Where have I put my sledgehammer?")
         return
     end
-    local cursorAction = EHK.CursorAction:new(player, sledge, sledgeCursorInit)
-    ISTimedActionQueue.add(cursorAction)
+    local UniversalAction = EHK.UniversalAction:new(player, sledgehammer, demolishCursorInit)
+    ISTimedActionQueue.add(UniversalAction)
 end
 
 -- local keyConfigs = {
 --     sledgehammer = {
---         action = equipSledge,
+--         action = equipSledgehammer,
 --         keyCode = 0
 --     }
 -- }

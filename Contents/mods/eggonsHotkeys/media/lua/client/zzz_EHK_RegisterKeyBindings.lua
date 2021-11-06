@@ -28,7 +28,7 @@ EHK.keyConfigs = {
         keyCode = 43
     },
     sledgehammer = {
-        action = EHK.equipSledge,
+        action = EHK.equipSledgehammer,
         keyCode = 0
     },
     chopWithAxe = {
@@ -36,7 +36,7 @@ EHK.keyConfigs = {
         keyCode = 0
     },
     umbrella = {
-        action = EHK.umbrella,
+        action = EHK.equipUmbrella,
         keyCode = 0
     }
 }

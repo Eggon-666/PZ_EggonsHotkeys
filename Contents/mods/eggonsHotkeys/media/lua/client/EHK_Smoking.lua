@@ -9,19 +9,6 @@ local lightDialogues = {
     [2] = "Where are my matches?",
     [3] = "Gotta search some corpses for a lighter..."
 }
-local function getContainers()
-    -- get all the surrounding inventory of the player, gonna check for the item in them too
-    local containerList = ArrayList.new()
-    local c = {}
-    for i, v in ipairs(getPlayerInventory(0).inventoryPane.inventoryPage.backpacks) do
-        containerList:add(v.inventory)
-        c[#c + 1] = v.inventory
-    end
-    -- for i, v in ipairs(getPlayerLoot(0).inventoryPane.inventoryPage.backpacks) do
-    --     containerList:add(v.inventory)
-    -- end
-    return containerList
-end
 
 function getFirstItem(dictionary, inv, smokingItemType)
     local output
@@ -56,7 +43,11 @@ EHK.smoke = function()
         else
             -- print("pack found ", cigarettesPack)
             local itemRecipes =
-                RecipeManager.getUniqueRecipeItems(pack, player, ISInventoryPaneContextMenu.getContainers(player))
+                RecipeManager.getUniqueRecipeItems(
+                cigarettesPack,
+                player,
+                ISInventoryPaneContextMenu.getContainers(player)
+            )
             local recipe
             if itemRecipes:size() > 0 then
                 for i = 0, itemRecipes:size() - 1 do
@@ -76,7 +67,7 @@ EHK.smoke = function()
             if recipe then
                 -- print("Recipe to be used: ", recipe:getName())
                 -- print(recipe)
-                cigarettes = RecipeManager.PerformMakeItem(recipe, cigarettesPack, player, getContainers())
+                cigarettes = RecipeManager.PerformMakeItem(recipe, cigarettesPack, player, EHK.getContainers())
                 -- printFuckingNormalObject(cigarettes, "cigarettes")
                 inv:AddItem(cigarettes)
             else

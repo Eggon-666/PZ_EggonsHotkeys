@@ -1,22 +1,22 @@
 require "TimedActions/ISBaseTimedAction"
 
-local CursorAction = ISBaseTimedAction:derive("CursorAction")
+local UniversalAction = ISBaseTimedAction:derive("UniversalAction")
 
-function CursorAction:isValid()
+function UniversalAction:isValid()
     return true
 end
 
-function CursorAction:waitToStart()
+function UniversalAction:waitToStart()
     return false
 end
 
-function CursorAction:perform()
+function UniversalAction:perform()
     self:callback(self)
     -- Remove Timed Action from stack
     ISBaseTimedAction.perform(self)
 end
 
-function CursorAction:new(character, item, action, maxTime)
+function UniversalAction:new(character, item, action, maxTime)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -30,6 +30,6 @@ function CursorAction:new(character, item, action, maxTime)
     return o
 end
 
-EHK.CursorAction = CursorAction
+EHK.UniversalAction = UniversalAction
 
-print("EHK.CursorAction ", EHK.CursorAction)
+print("EHK.UniversalAction ", EHK.UniversalAction)
