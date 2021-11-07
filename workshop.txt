@@ -1,7 +1,7 @@
 version=1
 id=2289454303
 title=Eggon's Hotkeys
-description=* Now added Pain killers, Beta blockers and Smoking! *
+description=* ** New additions: Chop Trees, Demolish, Umbrella ***
 description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration!
 description=
 description=The smoking and pills hotkeys work even if respective items are in a bag and they pack them again to the relevant bags after action is finished! 
@@ -14,6 +14,9 @@ description=Rotate - press: [ARROW RIGHT]
 description=Smoke - press: [K] (for smoKe)
 description=Take Beta blockers - press: [']
 description=Take Pain killers - press: [\]
+description=Chop trees (+equip axe) - no default binding
+description=Demolish (+equip sledgehammer) - no default binding
+description=Umbrella (equip / unequip) - no default binding
 description=
 description=[b]Compatibility[/b]
 description=Smoking action is compatible with:
