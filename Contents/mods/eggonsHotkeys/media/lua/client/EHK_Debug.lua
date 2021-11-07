@@ -68,6 +68,14 @@ local function printEvos(item)
 
     inv:AddItem(cigarettes)
 end
+
+local function lootContainers()
+    for i, v in ipairs(getPlayerLoot(0).inventoryPane.inventoryPage.backpacks) do
+        print("Container TYpe ", v.inventory:getType())
+        printFuckingNormalObject(v.inventory)
+    end
+end
+
 local function addDebugOptions(player, context, items)
     local item
     if items[1].items then
@@ -77,6 +85,7 @@ local function addDebugOptions(player, context, items)
     end
 
     context:addOption("Add items", item, addItems)
+    context:addOption("Print loot container", item, lootContainers)
     -- context:addOption("Print evos", item, printEvos)
     context:addOption("Test", item, testFn)
 end
