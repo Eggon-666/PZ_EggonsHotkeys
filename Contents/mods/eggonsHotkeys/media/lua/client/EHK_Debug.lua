@@ -90,3 +90,25 @@ local function addDebugOptions(player, context, items)
     context:addOption("Test", item, testFn)
 end
 Events.OnFillInventoryObjectContextMenu.Add(addDebugOptions)
+
+-- czy niesiemy corpse?
+-- -- TAK niesiemy corpse
+-- -- -- Czy jest bin w lootInventory i czy jest w nim miejsce
+-- -- -- -- TAK jest pusty bin
+-- -- -- -- -- przetransferuj corpse do bin
+-- -- -- -- -- Opróżnij bin
+-- -- -- -- -- ZAKOŃCZ
+-- -- -- -- ELSE GOTO NEXT
+-- -- -- Czy jest grave i czy jest w nim miejsce?
+-- -- -- -- TAK, jest grave z miejscem
+-- -- -- -- -- pochowaj corpse
+-- -- -- -- -- ZAKOŃCZ
+-- -- -- -- ELSE GOTO NEXT
+-- -- -- ELSE
+-- -- -- -- Drop corpse
+-- -- NIE niesiemy corpse
+-- -- -- Czy leży corpse na ziemi?
+-- -- -- -- TAK leży corpse na ziemi
+-- -- -- -- -- podnieś corpse
+-- -- -- -- NIE leży corpse na ziemi
+-- -- -- -- -- powiedz coś
