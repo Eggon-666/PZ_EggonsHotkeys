@@ -9,13 +9,15 @@ local function addItems()
     --         inv:AddItem(fullType)
     --     end
     -- end
-    testItem = getScriptManager():getItem(EHK.cigarettes[8])
-    if testItem and type(testItem) ~= "string" then
-        inv:AddItem(EHK.cigarettes[1])
-        inv:AddItem(EHK.cigarettes[1])
-        inv:AddItem(EHK.cigarettesPacks[3])
-        inv:AddItem("CigaretteMod.CigaretteCarton")
-    end
+    -- testItem = getScriptManager():getItem(EHK.cigarettes[8])
+    -- if testItem and type(testItem) ~= "string" then
+    --     inv:AddItem(EHK.cigarettes[1])
+    --     inv:AddItem(EHK.cigarettes[1])
+    --     inv:AddItem(EHK.cigarettesPacks[3])
+    --     inv:AddItem("CigaretteMod.CigaretteCarton")
+    -- end
+    inv:AddItem("Base.CorpseMale")
+    inv:AddItem("Base.CorpseFemale")
 end
 local function getContainers()
     -- get all the surrounding inventory of the player, gonna check for the item in them too
