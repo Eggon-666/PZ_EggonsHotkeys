@@ -38,6 +38,10 @@ EHK.keyConfigs = {
     umbrella = {
         action = EHK.equipUmbrella,
         keyCode = 0
+    },
+    corpseDisposal = {
+        action = EHK.corpseDisposal,
+        keyCode = 0
     }
 }
 
