@@ -10,5 +10,6 @@ UI_EN = {
     UI_optionscreen_binding_sledgehammer = "Demolish with sledgehammer",
     UI_optionscreen_binding_chopWithAxe = "Chop trees with axe",
     UI_optionscreen_binding_umbrella = "Equip umbrella",
-    UI_optionscreen_binding_corpseDisposal = "Corpse disposal"
+    UI_optionscreen_binding_corpseDisposal = "Corpse disposal",
+    UI_optionscreen_binding_flexKey = "FlexKey (choose action from context menu)",
 }

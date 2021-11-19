@@ -1,49 +1,89 @@
 EHK.keyConfigs = {
     pickup = {
+        isHotAction = false,
+        isFlexKey = true,
+        displayName = "Pick up furniture",
         action = EHK.createFurnitureCursor,
         keyCode = 200
     },
     place = {
+        isHotAction = false,
+        isFlexKey = true,
+        displayName = "Place furniture",
         action = EHK.createFurnitureCursor,
         keyCode = 208
     },
     rotate = {
+        isHotAction = false,
+        isFlexKey = false,
         action = EHK.createFurnitureCursor,
         keyCode = 205
     },
     scrap = {
+        isHotAction = false,
+        isFlexKey = true,
+        displayName = "Scrap funriture",
         action = EHK.createFurnitureCursor,
         keyCode = 211
     },
     smoke = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Smoke",
         action = EHK.smoke,
         keyCode = 37
     },
     betaBlockers = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Take Beta Blockers",
         action = EHK.takeBetaBlockers,
         keyCode = 40
     },
     painKillers = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Take Pain killers",
         action = EHK.takePainKillers,
         keyCode = 43
     },
     sledgehammer = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Demolish (& equip sledgehammer)",
         action = EHK.equipSledgehammer,
         keyCode = 0
     },
     chopWithAxe = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Chop trees (& equip axe)",
         action = EHK.equipAxe,
         keyCode = 0
     },
     umbrella = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Umbrella - equip / unequip",
         action = EHK.equipUmbrella,
         keyCode = 0
     },
     corpseDisposal = {
+        isHotAction = false,
+        isFlexKey = true,
+        displayName = "Corpse disposal",
         action = EHK.corpseDisposal,
+        keyCode = 0
+    },
+    flexKey = {
+        isHotAction = false,
+        isFlexKey = false,
+        action = EHK.triggerFlexKey,
         keyCode = 0
     }
 }
+
+print("sledge action: ", EHK.keyConfigs.sledgehammer.action)
 
 local mybind = {}
 mybind.value = "[eggonsHotkeys]"
