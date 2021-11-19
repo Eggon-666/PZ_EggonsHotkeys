@@ -1,4 +1,10 @@
-EHK = {keyConfigs = {}}
+EHK = {
+    keyConfigs = {},
+    Options = {
+        displayHotActions = true,
+        displayFlexKey = true
+    }
+}
 
 EHK_Plugin = {keyConfigs = {}}
 
