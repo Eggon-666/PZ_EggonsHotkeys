@@ -1,36 +1,42 @@
 version=1
 id=2289454303
 title=Eggon's Hotkeys
-description=* ** New additions: Chop Trees, Demolish, Umbrella *
-description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration!
-description=
-description=The smoking and pills hotkeys work even if respective items are in a bag and they pack them again to the relevant bags after action is finished!
-description=
-description=[b]DEFAULT BINDINGS (can be changed in the key bindings menu!):[/b]
-description=Pick up - press: [ARROW UP]
-description=Place - press: [ARROW DOWN]
-description=Dismantle - press: [DELETE]
-description=Rotate - press: [ARROW RIGHT]
-description=Smoke - press: [K] (for smoKe)
-description=Take Beta blockers - press: [']
-description=Take Pain killers - press: [\]
-description=Chop trees (+equip axe) - no default binding
-description=Demolish (+equip sledgehammer) - no default binding
-description=Umbrella (equip / unequip) - no default binding
-description=
-description=[b]Compatibility[/b]
-description=Smoking action is compatible with:
-description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
-description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
-description=
-description=[b]Credits:[/b]
-description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
-description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
-description=
-description=I play on build 41, don't know if it works on earlier builds. It might. If you tried and know if it works or not, please let me know.
-description=
-description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
-description=
-description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration! All bindings can be changed/set in the game's [b]key bindings menu[/b].
+description=*** New additions: Chop Trees, Demolish, Umbrella ***
+description=
+description=The smoking and pills hotkeys work even if respective items are in a bag and they pack them again to the relevant bags after action is finished!
+description=[h2]FEATURED KEYS[/h2]
+description=[list][*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
+description=Default binding: [K] (for smoKe)
+description=[*][h3]Take Beta blockers[/h3]Finds pills, takes one and repacks the rest.
+description=Default binding: [']
+description=[*][h3]Take Pain killers[/h3]Finds pills, takes one and repacks the rest.
+description=Default binding: [\]
+description=[*][h3]Pick up furniture[/h3]Displays pick up cursor for furniture.
+description=Default binding: [ARROW UP]
+description=[*][h3]Place furniture[/h3]Displays place cursor for furniture.
+description=Default binding: [ARROW DOWN]
+description=[*][h3]Dismantle furniture[/h3]Displays dismantle cursor for furniture.
+description=Default binding: [DELETE]
+description=[*][h3]Rotate furniture[/h3]Rotates currently held furniture. 
+description=Default binding: [ARROW RIGHT]
+description=[*][h3]Chop trees (& equip axe)[/h3]Equips axe (if not equipped) and displays chop trees cursor. Looks for the biggest axes first.
+description=Default binding: [i]none[/i]
+description=[*][h3]Demolish (& equip sledgehammer)[/h3]Equips sledgehammer (if not equipped) and displays demolishion cursor.
+description=Default binding: [i]none[/i]
+description=[*][h3]Umbrella[/h3]Finds and equips opened umbrella as secondary item. If umbrella is equipped, closes it, repacks and equips previously held item. Repack and reequip will not trigger if game was reloaded while umbrella was held.
+description=Default binding: [i]none[/i][/list]
+description=[h3]Compatibility[/h3]
+description=Smoking action is compatible with:
+description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
+description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
+description=[h3]Credits:[/h3]
+description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
+description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
+description=
+description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
+description=
+description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=
 tags=Build 41;Interface
 visibility=public
