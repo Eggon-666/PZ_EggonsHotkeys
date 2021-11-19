@@ -13,6 +13,6 @@ function EHK.triggerFlexKey()
         -- print("FlexKey: ", MD.EHK.savedAction)
         -- printFuckingNormalObject(EHK.keyConfigs[MD.EHK.savedAction], "CFG")
         -- print("CFG.action: ", EHK.keyConfigs[MD.EHK.savedAction].action)
-        EHK.keyConfigs[MD.EHK.savedAction].action()
+        EHK.keyConfigs[MD.EHK.savedAction].action(tostring(getCore():getKey(MD.EHK.savedAction)))
     end
 end
