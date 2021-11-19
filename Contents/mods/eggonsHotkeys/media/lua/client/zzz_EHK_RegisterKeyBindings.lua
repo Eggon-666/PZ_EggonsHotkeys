@@ -83,8 +83,6 @@ EHK.keyConfigs = {
     }
 }
 
-print("sledge action: ", EHK.keyConfigs.sledgehammer.action)
-
 local mybind = {}
 mybind.value = "[eggonsHotkeys]"
 table.insert(keyBinding, mybind)
