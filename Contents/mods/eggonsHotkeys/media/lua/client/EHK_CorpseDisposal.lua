@@ -93,7 +93,7 @@ EHK.corpseDisposal = function()
             -- print("Available bin found")
             transferTheCorpse = ISInventoryTransferAction:new(player, corpse, corpseContainer, bin)
             ISTimedActionQueue.add(transferTheCorpse)
-            local ClearCorpseInBin = EHK.UniversalAction:new(player, corpse, clearCorpseInBin)
+            local ClearCorpseInBin = EHK.UniversalAction:new(player, corpse, clearCorpseInBin, 15)
             ISTimedActionQueue.add(ClearCorpseInBin)
             return
         end
