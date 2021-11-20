@@ -22,7 +22,7 @@ EHK.keyConfigs = {
     scrap = {
         isHotAction = false,
         isFlexKey = true,
-        displayName = "Scrap funriture",
+        displayName = "Scrap furniture",
         action = EHK.createFurnitureCursor,
         keyCode = 211
     },
