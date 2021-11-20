@@ -1,12 +1,16 @@
 version=1
 id=2289454303
-title=Eggon's Hotkeys
+title=Eggon's Hotkeys & Hot Actions
 description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration! All bindings can be changed/set in the game's [b]key bindings menu[/b].
-description=*** New additions: Chop Trees, Demolish, Umbrella ***
+description=New additions: ?Hot Actions and ?FlexKey!
+description=? [b]Hot Actions[/b] allow you to trigger chosen actions from the context menu instead of a hotkey, because you know - keyboards have only so many keys... ;)
+description=? [b]FlexKey[/b] - is a keybindig to which you can assign (also from context menu) action that you need at the moment. Chopping trees? Assign Chop trees. Opening storage units? Assign Sledgehammer. Cleaning the mayhem around your base? Assign Corpse Disposal. This way you can have the relevant option improtant for what you are doing at the moment and use just one key for many things!
 description=
-description=The smoking and pills hotkeys work even if respective items are in a bag and they pack them again to the relevant bags after action is finished!
-description=[h2]FEATURED KEYS[/h2]
-description=[list][*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
+description=If you don't want HotActions and FlexKey to appear in your context menu, you can switch them off using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993]ModOptions[/url] mod.
+description=[h2]FEATURED KEYS / ACTIONS[/h2]
+description=[list][*][h3]Corpse Disposal[/h3]4-in-1 hotkey: If no corpse in inventory picks up a corpse. If corpse already in inventory looks for a large trash container and disposes the corpse there (container icon must appear in the loot window). If no trash container is available looks for a grave and buries the corpse (you need to stand on the grave). If no grave is available just drops the corpse. 
+description=Default binding: [i]none[/i]
+description=[*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
 description=Default binding: [K] (for smoKe)
 description=[*][h3]Take Beta blockers[/h3]Finds pills, takes one and repacks the rest.
 description=Default binding: [']
