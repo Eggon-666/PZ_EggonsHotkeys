@@ -1,46 +1,48 @@
 version=1
 id=2289454303
 title=Eggon's Hotkeys & Hot Actions
-description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration! All bindings can be changed/set in the game's [b]key bindings menu[/b].
-description=New additions: ?Hot Actions and ?FlexKey!
-description=? [b]Hot Actions[/b] allow you to trigger chosen actions from the context menu instead of a hotkey, because you know - keyboards have only so many keys... ;)
-description=? [b]FlexKey[/b] - is a keybindig to which you can assign (also from context menu) action that you need at the moment. Chopping trees? Assign Chop trees. Opening storage units? Assign Sledgehammer. Cleaning the mayhem around your base? Assign Corpse Disposal. This way you can have the relevant option important for what you are doing at the moment and use just one key for many things!
-description=
-description=If you don't want HotActions and FlexKey to appear in your context menu, you can switch them off using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993]ModOptions[/url] mod.
-description=[h2]FEATURED KEYS / ACTIONS[/h2]
-description=[list][*][h3]Corpse Disposal[/h3]4-in-1 hotkey: If no corpse in inventory picks up a corpse. If corpse already in inventory looks for a large trash container and disposes the corpse there (container icon must appear in the loot window). If no trash container is available looks for a grave and buries the corpse (you need to stand on the grave). If no grave is available just drops the corpse. 
-description=Default binding: [i]none[/i]
-description=[*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
-description=Default binding: [K] (for smoKe)
-description=[*][h3]Take Beta blockers[/h3]Finds pills, takes one and repacks the rest.
-description=Default binding: [']
-description=[*][h3]Take Pain killers[/h3]Finds pills, takes one and repacks the rest.
-description=Default binding: [\]
-description=[*][h3]Pick up furniture[/h3]Displays pick up cursor for furniture.
-description=Default binding: [ARROW UP]
-description=[*][h3]Place furniture[/h3]Displays place cursor for furniture.
-description=Default binding: [ARROW DOWN]
-description=[*][h3]Dismantle furniture[/h3]Displays dismantle cursor for furniture.
-description=Default binding: [DELETE]
-description=[*][h3]Rotate furniture[/h3]Rotates currently held furniture. 
-description=Default binding: [ARROW RIGHT]
-description=[*][h3]Chop trees (& equip axe)[/h3]Equips axe (if not equipped) and displays chop trees cursor. Looks for the biggest axes first.
-description=Default binding: [i]none[/i]
-description=[*][h3]Demolish (& equip sledgehammer)[/h3]Equips sledgehammer (if not equipped) and displays demolishion cursor.
-description=Default binding: [i]none[/i]
-description=[*][h3]Umbrella[/h3]Finds and equips opened umbrella as secondary item. If umbrella is equipped, closes it, repacks and equips previously held item. Repack and reequip will not trigger if game was reloaded while umbrella was held.
-description=Default binding: [i]none[/i][/list]
-description=[h3]Compatibility[/h3]
-description=Smoking action is compatible with:
-description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
-description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
-description=[h3]Credits:[/h3]
-description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
-description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
-description=
-description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
-description=
-description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
-description=
+description=This mod introduces hotkeys for chosen actions requiring excessive clicking. No more of that frustration! All bindings can be changed/set in the game's [b]key bindings menu[/b]. All the actions are also accessible via ?Hot Actions and ?FlexKey!
+description=? [b]Hot Actions[/b] allow you to trigger chosen actions from the context menu instead of a hotkey, because you know - keyboards have only so many keys... ;)
+description=? [b]FlexKey[/b] - is a keybindig to which you can assign (also from context menu) action that you need at the moment. Chopping trees? Assign Chop trees. Opening storage units? Assign Sledgehammer. Cleaning the mayhem around your base? Assign Corpse Disposal. This way you can have the relevant option important for what you are doing at the moment and use just one key for many things!
+description=
+description=If you don't want HotActions and FlexKey to appear in your context menu, you can switch them off using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993]ModOptions[/url] mod.
+description=[h2]FEATURED KEYS / ACTIONS[/h2]
+description=[list][*][h3]Corpse Disposal[/h3]4-in-1 hotkey: If no corpse in inventory picks up a corpse. If corpse already in inventory looks for a large trash container and disposes the corpse there (container icon must appear in the loot window). If no trash container is available looks for a grave and buries the corpse (you need to stand on the grave). If no grave is available just drops the corpse.
+description=Default binding: [i]none[/i]
+description=[*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
+description=Default binding: [K] (for smoKe)
+description=[*][h3]Take Beta blockers[/h3]Finds pills, takes one and repacks the rest.
+description=Default binding: [']
+description=[*][h3]Take Pain killers[/h3]Finds pills, takes one and repacks the rest.
+description=Default binding: [\]
+description=[*][h3]Equip Molotov[/h3]Finds molotov coctail and a lighter (from any container in inventory) and equips them. The lighter will be switched off, so it will not get used up while holding!
+description=Default binding: [i]none[/i]
+description=[*][h3]Pick up furniture[/h3]Displays pick up cursor for furniture.
+description=Default binding: [ARROW UP]
+description=[*][h3]Place furniture[/h3]Displays place cursor for furniture.
+description=Default binding: [ARROW DOWN]
+description=[*][h3]Dismantle furniture[/h3]Displays dismantle cursor for furniture.
+description=Default binding: [DELETE]
+description=[*][h3]Rotate furniture[/h3]Rotates currently held furniture.
+description=Default binding: [ARROW RIGHT]
+description=[*][h3]Chop trees (& equip axe)[/h3]Equips axe (if not equipped) and displays chop trees cursor. Looks for the biggest axes first.
+description=Default binding: [i]none[/i]
+description=[*][h3]Demolish (& equip sledgehammer)[/h3]Equips sledgehammer (if not equipped) and displays demolishion cursor.
+description=Default binding: [i]none[/i]
+description=[*][h3]Umbrella[/h3]Finds and equips opened umbrella as secondary item. If umbrella is equipped, closes it, repacks and equips previously held item. Repack and reequip will not trigger if game was reloaded while umbrella was held.
+description=Default binding: [i]none[/i][/list]
+description=[*][h3]Extinguish[/h3]Finds extinguishing item, unpacks it to main inventory and triggers extinguishing cursor. Items will be sought in the following order: 1) Extinguisher, 2) Sandbag, 3) Gravel Bag, 4) Dirt Bag, 5) Water container.
+description=Default binding: [i]none[/i]
+description=[h3]Compatibility[/h3]
+description=Smoking action is compatible with:
+description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
+description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
+description=[h3]Credits:[/h3]
+description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
+description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
+description=
+description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
+description=
+description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
 tags=Build 41;Interface
 visibility=public
