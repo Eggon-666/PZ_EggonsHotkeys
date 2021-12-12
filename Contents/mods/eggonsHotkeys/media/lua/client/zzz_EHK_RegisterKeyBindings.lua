@@ -75,6 +75,20 @@ EHK.keyConfigs = {
         action = EHK.corpseDisposal,
         keyCode = 0
     },
+    equipMolotov = {
+        isHotAction = true,
+        isFlexKey = true,
+        action = EHK.equipMolotov,
+        displayName = "Equip molotov",
+        keyCode = 0
+    },
+    extinguishFire = {
+        isHotAction = true,
+        isFlexKey = true,
+        action = EHK.equipExtinguisher,
+        displayName = "Extinguish fire",
+        keyCode = 0
+    },
     flexKey = {
         isHotAction = false,
         isFlexKey = false,
