@@ -72,7 +72,21 @@ local function predicateCorpse(item)
     return corpses[fullType]
 end
 
-EHK.corpseDisposal = function()
+EHK.corpseDisposal = function(keyPressedString)
+    local actionCodes = {
+        [tostring(getCore():getKey("corpseDisposal"))] = "pickup",
+        [tostring(getCore():getKey("corpseDrop"))] = "drop"
+    }
+    local action = actionCodes[keyPressedString]
+    local pickUp, drop = true, true
+    if EHK.Options.separateKeyForCorpseDrop then
+        if action == "pickup" then
+            drop = false
+        elseif action == "drop" then
+            pickUp = false
+        end
+    -- czy działa, kiedy no key set?
+    end
     -- print("Starting corpse disposal")
     local player = getPlayer()
     local playerNum = player:getPlayerNum()

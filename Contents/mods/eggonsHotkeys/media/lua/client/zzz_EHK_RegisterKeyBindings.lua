@@ -97,6 +97,15 @@ EHK.keyConfigs = {
     }
 }
 
+if EHK.Options.separateKeyForCorpseDrop then
+    EHK.keyConfigs.corpseDrop = {
+        isHotAction = false,
+        isFlexKey = true,
+        action = EHK.corpseDisposal,
+        keyCode = 0
+    }
+end
+
 local mybind = {}
 mybind.value = "[eggonsHotkeys]"
 table.insert(keyBinding, mybind)

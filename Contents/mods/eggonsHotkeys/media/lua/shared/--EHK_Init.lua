@@ -2,7 +2,9 @@ EHK = {
     keyConfigs = {},
     Options = {
         displayHotActions = true,
-        displayFlexKey = true
+        displayFlexKey = true,
+        separateKeyForCorpseDrop = false,
+        tryToLoadCorpseToBackpackFirst = false
     }
 }
 
