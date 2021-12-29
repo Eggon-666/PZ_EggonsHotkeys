@@ -5,7 +5,7 @@ if ModOptions and ModOptions.getInstance then
         local newValues = updateData.settings.options
         EHK.Options.displayHotActions = newValues.displayHotActions
         EHK.Options.displayFlexKey = newValues.displayFlexKey
-        EHK.Options.separateKeyForCorpseDrop = newValues.separateKeyForCorpseDrop
+        EHK.Options.separateKeyForCorpsePickup = newValues.separateKeyForCorpsePickup
         EHK.Options.tryToLoadCorpseToBackpackFirst = newValues.tryToLoadCorpseToBackpackFirst
     end
     local SETTINGS = {
@@ -22,9 +22,9 @@ if ModOptions and ModOptions.getInstance then
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             },
-            separateKeyForCorpseDrop = {
+            separateKeyForCorpsePickup = {
                 default = false,
-                name = "Enable separate key for corpse drop",
+                name = "Enable separate key for picking up corpses",
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             },

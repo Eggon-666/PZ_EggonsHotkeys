@@ -3,7 +3,7 @@ EHK = {
     Options = {
         displayHotActions = true,
         displayFlexKey = true,
-        separateKeyForCorpseDrop = false,
+        separateKeyForCorpsePickup = false,
         tryToLoadCorpseToBackpackFirst = false
     }
 }

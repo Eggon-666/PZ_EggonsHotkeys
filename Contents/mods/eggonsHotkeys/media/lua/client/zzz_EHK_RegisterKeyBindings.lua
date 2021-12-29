@@ -97,8 +97,8 @@ EHK.keyConfigs = {
     }
 }
 
-if EHK.Options.separateKeyForCorpseDrop then
-    EHK.keyConfigs.corpseDrop = {
+if EHK.Options.separateKeyForCorpsePickup then
+    EHK.keyConfigs.corpsePickup = {
         isHotAction = false,
         isFlexKey = true,
         action = EHK.corpseDisposal,

@@ -7,3 +7,15 @@ function EHK.getContainers()
     end
     return containerList
 end
+
+function EHK.canFitItem(container, item)
+    local capacity = container:getCapacity()
+    local usedCapacity = container:getContentsWeight()
+    local freeCapacity = capacity - usedCapacity
+    local itemWeight = item:getWeight()
+    if itemWeight > freeCapacity then
+        return false
+    else
+        return true
+    end
+end

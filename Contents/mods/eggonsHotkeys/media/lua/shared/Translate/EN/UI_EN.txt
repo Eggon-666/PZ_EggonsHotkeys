@@ -14,4 +14,12 @@ UI_EN = {
     UI_optionscreen_binding_flexKey = "FlexKey (choose action from context menu)",
     UI_optionscreen_binding_equipMolotov = "Equip molotov",
     UI_optionscreen_binding_extinguishFire = "Extinguish fire",
+    UI_optionscreen_binding_corpsePickup = "Pick up a corpse",
+    UI_optionscreen_binding_openPrimary = "Open primary bag",
+    UI_optionscreen_binding_openSecondary = "Open secondary bag",
+    UI_optionscreen_binding_openBackpack = "Open backpack",
+    UI_optionscreen_binding_openFannypack = "Open fanny pack",
+    UI_optionscreen_binding_openMainInventory = "Open main inventory",
+    UI_optionscreen_binding_toggleInventory = "Toggle inventory window (expand/collapse)",
+    UI_optionscreen_binding_lootAll = "Loot all",
 }

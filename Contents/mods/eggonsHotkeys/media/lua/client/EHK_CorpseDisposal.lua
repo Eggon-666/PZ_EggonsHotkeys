@@ -79,7 +79,7 @@ EHK.corpseDisposal = function(keyPressedString)
     }
     local action = actionCodes[keyPressedString]
     local pickUp, drop = true, true
-    if EHK.Options.separateKeyForCorpseDrop then
+    if EHK.Options.separateKeyForCorpsePickup then
         if action == "pickup" then
             drop = false
         elseif action == "drop" then
@@ -97,7 +97,7 @@ EHK.corpseDisposal = function(keyPressedString)
     local floor = getSpecificLootContainer("floor")
     local transferTheCorpse
 
-    if corpse then -- CARRYING CORPSE
+    if drop and corpse then -- CARRYING CORPSE
         local corpseContainer = corpse:getContainer()
         local isCorpseEquipped = player:isEquipped(corpse)
         -- print("Corpse found in inventory")
@@ -132,13 +132,27 @@ EHK.corpseDisposal = function(keyPressedString)
             transferTheCorpse = ISInventoryTransferAction:new(player, corpse, corpseContainer, floor)
             ISTimedActionQueue.add(transferTheCorpse)
         end
-    else -- NO CORPSE IN INVENTORY
+    elseif drop then
+        player:Say("I don't carry any corpses.")
+    else -- PICK UP
         -- print("Corpse NOT found in inventory")
         -- Is a corpse on the ground?
         corpse = getCorpseFromGround()
         if corpse then
             -- print("Corpse found on the ground")
-            ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
+            if EHK.Options.tryToLoadCorpseToBackpackFirst then
+                local backpack = getPlayer():getClothingItem_Back()
+                if backpack and EHK.canFitItem(backpack, corpse) then
+                    transferTheCorpse = ISInventoryTransferAction:new(player, corpse, corpseContainer, backpack)
+                    ISTimedActionQueue.add(transferTheCorpse)
+                else -- check if already holding
+                    local PHI = player:getPrimaryHandItem()
+                    if PHI and corpses[PHI:getFullType()] then
+                    end
+                end
+            else
+                ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
+            end
         else -- NO CORPSE ON THE FLOOR
             -- print("Corpse NOT found on the ground")
             player:Say("There are no corpses within my reach.")
