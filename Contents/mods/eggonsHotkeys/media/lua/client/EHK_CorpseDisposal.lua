@@ -67,6 +67,16 @@ local function getAvailableGrave()
     return grave
 end
 
+local function movePickedUpCorpseToBag(self)
+    local player = self.character
+    local inventory = player:getInventory()
+    local PHI = player:getPrimaryHandItem()
+    if EHK.corpses(PHI:getFullType()) then
+        local transferTheCorpse = ISInventoryTransferAction:new(player, PHI, PHI:getContainer(), self.item, 0)
+        ISTimedActionQueue.add(transferTheCorpse)
+    end
+end
+
 local function predicateCorpse(item)
     local fullType = item:getFullType()
     return EHK.corpses[fullType]
@@ -98,6 +108,7 @@ EHK.corpseDisposal = function(keyPressedString)
     local loot = getPlayerLoot(playerNum)
 
     local corpse = inv:getFirstEvalRecurse(predicateCorpse)
+    print("corpse in inv: ", corpse)
     local floor = getSpecificLootContainer("floor")
     local transferTheCorpse
 
@@ -153,15 +164,19 @@ EHK.corpseDisposal = function(keyPressedString)
                 elseif not availableContainer then
                     player:Say("I can't fit any more corpses...")
                 else
+                    -- local Transfer  = EHK.UniversalAction:new(player, corpse, clearCorpseInBin, 15)
+                    -- ISTimedActionQueue.add(ClearCorpseInBin)
+                    -- transferTheCorpse =
+                    --     ISInventoryTransferAction:new(player, corpseItem, player:getInventory(), availableContainer)
+                    -- ISTimedActionQueue.add(transferTheCorpse)
                     local corpseItem = corpse:getParent()
                     corpseContainer = corpse:getParent():getContainer()
                     print("corpseContainer ", corpseContainer)
                     print("corpse ", corpse)
                     print("corpse:getParent() ", corpse:getParent())
                     ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpseItem, 50))
-                    transferTheCorpse =
-                        ISInventoryTransferAction:new(player, corpseItem, player:getInventory(), availableContainer)
-                    ISTimedActionQueue.add(transferTheCorpse)
+                    local MoveCorpseToBag = EHK.UniversalAction:new(player, corpse, movePickedUpCorpseToBag, 0)
+                    ISTimedActionQueue.add(MoveCorpseToBag)
                 end
             else
                 local SHI = player:getSecondaryHandItem()
