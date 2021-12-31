@@ -75,6 +75,12 @@ EHK.keyConfigs = {
         action = EHK.corpseDisposal,
         keyCode = 0
     },
+    corpsePickup = {
+        isHotAction = false,
+        isFlexKey = true,
+        action = EHK.corpseDisposal,
+        keyCode = 0
+    },
     equipMolotov = {
         isHotAction = true,
         isFlexKey = true,
@@ -96,15 +102,6 @@ EHK.keyConfigs = {
         keyCode = 0
     }
 }
-
-if EHK.Options.separateKeyForCorpsePickup then
-    EHK.keyConfigs.corpsePickup = {
-        isHotAction = false,
-        isFlexKey = true,
-        action = EHK.corpseDisposal,
-        keyCode = 0
-    }
-end
 
 local mybind = {}
 mybind.value = "[eggonsHotkeys]"

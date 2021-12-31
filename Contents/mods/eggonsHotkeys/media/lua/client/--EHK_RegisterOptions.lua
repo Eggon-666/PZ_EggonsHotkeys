@@ -5,8 +5,9 @@ if ModOptions and ModOptions.getInstance then
         local newValues = updateData.settings.options
         EHK.Options.displayHotActions = newValues.displayHotActions
         EHK.Options.displayFlexKey = newValues.displayFlexKey
-        EHK.Options.separateKeyForCorpsePickup = newValues.separateKeyForCorpsePickup
+        -- EHK.Options.separateKeyForCorpsePickup = newValues.separateKeyForCorpsePickup
         EHK.Options.tryToLoadCorpseToBackpackFirst = newValues.tryToLoadCorpseToBackpackFirst
+        EHK.Options.requireEquipCorpse = newValues.requireEquipCorpse
     end
     local SETTINGS = {
         options_data = {
@@ -22,15 +23,21 @@ if ModOptions and ModOptions.getInstance then
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             },
-            separateKeyForCorpsePickup = {
-                default = false,
-                name = "Enable separate key for picking up corpses",
-                OnApplyMainMenu = applyModOptions,
-                OnApplyInGame = applyModOptions
-            },
+            -- separateKeyForCorpsePickup = {
+            --     default = false,
+            --     name = "Enable separate key for picking up corpses",
+            --     OnApplyMainMenu = applyModOptions,
+            --     OnApplyInGame = applyModOptions
+            -- },
             tryToLoadCorpseToBackpackFirst = {
                 default = false,
                 name = "Pack corpse to backpack if possible",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            requireEquipCorpse = {
+                default = true,
+                name = "Require corpse to be equipped when holding",
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             }

@@ -8,6 +8,31 @@ function EHK.getContainers()
     return containerList
 end
 
+function EHK.findAvailableContainer(item, player)
+    local container = player:getClothingItem_Back()
+    if container and EHK.canFitItem(container, item) then
+        return container
+    end
+    container = player:getSecondaryHandItem()
+    if (container and instanceof(container, "ItemContainer") and EHK.canFitItem(container, item)) then
+        return container
+    end
+    if EHK.Options.requireEquipCorpse then
+        local SHI = player:getSecondaryHandItem()
+        if EHK.corpses[SHI:getFullType()] then
+            return false
+        else
+            return true
+        end
+    else
+        container = player:getInventory()
+        if EHK.canFitItem(container, item) then
+            return container
+        end
+    end
+    return false
+end
+
 function EHK.canFitItem(container, item)
     local capacity = container:getCapacity()
     local usedCapacity = container:getContentsWeight()
