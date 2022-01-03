@@ -19,7 +19,7 @@ function EHK.findAvailableContainer(item, player)
     end
     if EHK.Options.requireEquipCorpse then
         local SHI = player:getSecondaryHandItem()
-        if EHK.corpses[SHI:getFullType()] then
+        if SHI and EHK.corpses[SHI:getFullType()] then
             return false
         else
             return true

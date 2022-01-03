@@ -67,13 +67,33 @@ local function getAvailableGrave()
     return grave
 end
 
-local function movePickedUpCorpseToBag(self)
-    local player = self.character
-    local inventory = player:getInventory()
-    local PHI = player:getPrimaryHandItem()
-    if EHK.corpses(PHI:getFullType()) then
-        local transferTheCorpse = ISInventoryTransferAction:new(player, PHI, PHI:getContainer(), self.item, 0)
+local function movePickedUpCorpseToBag(bag)
+    print("Running movePickedUpCorpseToBag")
+    return function(self)
+        local player = self.character
+        local corpseObject = self.item:getParent()
+        local corpse = corpseObject:getItem()
+        local corpseContainer = corpse:getContainer()
+        print("ëxecuting movedPicked 2, bag ", bag)
+        print("Corpse container ", corpseContainer)
+        -- local PHI = player:getPrimaryHandItem()
+        -- if EHK.corpses(PHI:getFullType()) then
+        local transferTheCorpse = ISInventoryTransferAction:new(player, corpse, corpse:getContainer(), bag)
         ISTimedActionQueue.add(transferTheCorpse)
+        -- bag:addItem(corpse)
+        local RemoveCorpseBody =
+            EHK.UniversalAction:new(
+            player,
+            corpseObject,
+            function(self)
+                print("Removing body")
+                corpseObject:getSquare():removeCorpse(corpseObject, false)
+            end,
+            1
+        )
+        ISTimedActionQueue.add(RemoveCorpseBody)
+
+        -- end
     end
 end
 
@@ -169,18 +189,19 @@ EHK.corpseDisposal = function(keyPressedString)
                     -- transferTheCorpse =
                     --     ISInventoryTransferAction:new(player, corpseItem, player:getInventory(), availableContainer)
                     -- ISTimedActionQueue.add(transferTheCorpse)
-                    local corpseItem = corpse:getParent()
-                    corpseContainer = corpse:getParent():getContainer()
-                    print("corpseContainer ", corpseContainer)
-                    print("corpse ", corpse)
-                    print("corpse:getParent() ", corpse:getParent())
-                    ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpseItem, 50))
-                    local MoveCorpseToBag = EHK.UniversalAction:new(player, corpse, movePickedUpCorpseToBag, 0)
+                    -- local corpseItem = corpse:getParent()
+                    -- corpseContainer = corpse:getParent():getContainer()
+                    -- print("corpseContainer ", corpseContainer)
+                    -- print("corpse ", corpse)
+                    -- print("corpseItem:getItem() ", corpseItem:getItem())
+                    -- ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
+                    local MoveCorpseToBag =
+                        EHK.UniversalAction:new(player, corpse, movePickedUpCorpseToBag(availableContainer), 50)
                     ISTimedActionQueue.add(MoveCorpseToBag)
                 end
             else
                 local SHI = player:getSecondaryHandItem()
-                if EHK.corpses[SHI:getFullType()] then
+                if SHI and EHK.corpses[SHI:getFullType()] then
                     player:Say("I can't fit any more corpses...")
                 else
                     ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
