@@ -37,28 +37,11 @@ if DEBUG then
 
     local function testFn(item)
         print("Test function")
-        local player = getPlayer()
-        local inv = player:getInventory()
-
-        local umbrella = inv:AddItem("UmbrellaBlue")
-        if umbrella then
-            ISInventoryPaneContextMenu.equipWeapon(umbrella, false, false, player:getPlayerNum())
-            umbrella:setActivated(true)
-        end
-
-        local tags = item:getTags()
-
-        local count = tags:size()
-
-        print("count: ", count)
-        if count > 0 then
-            for i = 0, count - 1 do
-                print("TAG: ", tags:get(i))
-            end
-        end
-
-        -- item:setUseDelta(1)
-        -- item:setDelta(0)
+        local square = getPlayer():getSquare()
+        print("Checking objects")
+        EHK.CheckForWindow(square:getObjects())
+        print("Checking special objects")
+        EHK.CheckForWindow(square:getSpecialObjects())
     end
     local function printEvos(item)
         local player = getPlayer()
@@ -80,6 +63,10 @@ if DEBUG then
         end
     end
 
+    local function decreaseWeight(item)
+        item:setActualWeight(5)
+    end
+
     local function addDebugOptions(player, context, items)
         local item
         if items[1].items then
@@ -92,6 +79,7 @@ if DEBUG then
         context:addOption("Print loot container", item, lootContainers)
         -- context:addOption("Print evos", item, printEvos)
         context:addOption("Test", item, testFn)
+        -- context:addOption("Decrease weight", item, decreaseWeight)
     end
     Events.OnFillInventoryObjectContextMenu.Add(addDebugOptions)
 
