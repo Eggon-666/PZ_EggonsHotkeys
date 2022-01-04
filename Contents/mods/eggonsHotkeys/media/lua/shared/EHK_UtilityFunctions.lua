@@ -10,11 +10,7 @@ end
 
 function EHK.findAvailableContainer(item, player)
     local container = player:getClothingItem_Back()
-    if container and EHK.canFitItem(container, item) then
-        return container
-    end
-    container = player:getSecondaryHandItem()
-    if (container and instanceof(container, "ItemContainer") and EHK.canFitItem(container, item)) then
+    if EHK.Options.tryToLoadCorpseToBackpackFirst and container and EHK.canFitItem(container, item) then
         return container
     end
     if EHK.Options.requireEquipCorpse then
@@ -24,11 +20,10 @@ function EHK.findAvailableContainer(item, player)
         else
             return true
         end
-    else
-        container = player:getInventory()
-        if EHK.canFitItem(container, item) then
-            return container
-        end
+    end
+    container = player:getInventory()
+    if (container and EHK.canFitItem(container, item)) then
+        return container
     end
     return false
 end

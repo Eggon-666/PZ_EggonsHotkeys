@@ -68,32 +68,20 @@ local function getAvailableGrave()
 end
 
 local function movePickedUpCorpseToBag(bag)
-    print("Running movePickedUpCorpseToBag")
     return function(self)
-        local player = self.character
         local corpseObject = self.item:getParent()
         local corpse = corpseObject:getItem()
-        local corpseContainer = corpse:getContainer()
-        print("ëxecuting movedPicked 2, bag ", bag)
-        print("Corpse container ", corpseContainer)
-        -- local PHI = player:getPrimaryHandItem()
-        -- if EHK.corpses(PHI:getFullType()) then
-        local transferTheCorpse = ISInventoryTransferAction:new(player, corpse, corpse:getContainer(), bag)
-        ISTimedActionQueue.add(transferTheCorpse)
-        -- bag:addItem(corpse)
-        local RemoveCorpseBody =
-            EHK.UniversalAction:new(
-            player,
-            corpseObject,
-            function(self)
-                print("Removing body")
-                corpseObject:getSquare():removeCorpse(corpseObject, false)
-            end,
-            1
-        )
-        ISTimedActionQueue.add(RemoveCorpseBody)
+        local container
+        local inv = getPlayer():getInventory()
 
-        -- end
+        if instanceof(bag, "ItemContainer") then
+            container = bag
+        else
+            container = bag:getItemContainer()
+        end
+        -- print("Container: ", container:getType())
+        container:AddItem(corpse)
+        corpseObject:getSquare():removeCorpse(corpseObject, false)
     end
 end
 
@@ -109,7 +97,6 @@ EHK.corpseDisposal = function(keyPressedString)
     }
     local action = actionCodes[keyPressedString]
     local pickUp, drop = true, true
-    print("Corpse pickup: ", tostring(getCore():getKey("corpsePickup")))
     -- if EHK.Options.separateKeyForCorpsePickup then
     if tostring(getCore():getKey("corpsePickup")) ~= "0" then
         if action == "pickup" then
@@ -119,8 +106,8 @@ EHK.corpseDisposal = function(keyPressedString)
         end
     -- czy działa, kiedy no key set?
     end
-    print("drop ", drop)
-    print("pickUp ", pickUp)
+    -- print("drop ", drop)
+    -- print("pickUp ", pickUp)
     -- print("Starting corpse disposal")
     local player = getPlayer()
     local playerNum = player:getPlayerNum()
@@ -128,14 +115,14 @@ EHK.corpseDisposal = function(keyPressedString)
     local loot = getPlayerLoot(playerNum)
 
     local corpse = inv:getFirstEvalRecurse(predicateCorpse)
-    print("corpse in inv: ", corpse)
+    -- print("corpse in inv: ", corpse)
     local floor = getSpecificLootContainer("floor")
     local transferTheCorpse
 
     if drop and corpse then -- CARRYING CORPSE
         local corpseContainer = corpse:getContainer()
         local isCorpseEquipped = player:isEquipped(corpse)
-        print("Corpse found in inventory")
+        -- print("Corpse found in inventory")
         -- Check if bin is available. Transfer to bin and clear.
         local bin = getAvailableBin(corpse)
         if bin then
@@ -146,7 +133,7 @@ EHK.corpseDisposal = function(keyPressedString)
             ISTimedActionQueue.add(ClearCorpseInBin)
             return
         end
-        print("Available bin NOT found")
+        -- print("Available bin NOT found")
         -- check if grave available
         local grave = getAvailableGrave()
         if grave then
@@ -159,7 +146,7 @@ EHK.corpseDisposal = function(keyPressedString)
             ISTimedActionQueue.add(buryTheCorpse)
             return
         end
-        print("Available grave NOT found")
+        -- print("Available grave NOT found")
         if isCorpseEquipped then
             ISInventoryPaneContextMenu.unequipItem(corpse, playerNum)
         else
@@ -170,42 +157,24 @@ EHK.corpseDisposal = function(keyPressedString)
     elseif drop and not pickUp then
         player:Say("I don't carry any corpses.")
     else -- PICK UP
-        print("Corpse NOT found in inventory")
+        -- print("Corpse NOT found in inventory")
         -- Is a corpse on the ground?
         corpse = getCorpseFromGround()
         if corpse then
-            print("Corpse found on the ground")
-            if EHK.Options.tryToLoadCorpseToBackpackFirst then
-                local availableContainer = EHK.findAvailableContainer(corpse, player)
-                print("availableContainer ", availableContainer)
-
-                if availableContainer == true then -- hands available
-                    ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
-                elseif not availableContainer then
-                    player:Say("I can't fit any more corpses...")
-                else
-                    -- local Transfer  = EHK.UniversalAction:new(player, corpse, clearCorpseInBin, 15)
-                    -- ISTimedActionQueue.add(ClearCorpseInBin)
-                    -- transferTheCorpse =
-                    --     ISInventoryTransferAction:new(player, corpseItem, player:getInventory(), availableContainer)
-                    -- ISTimedActionQueue.add(transferTheCorpse)
-                    -- local corpseItem = corpse:getParent()
-                    -- corpseContainer = corpse:getParent():getContainer()
-                    -- print("corpseContainer ", corpseContainer)
-                    -- print("corpse ", corpse)
-                    -- print("corpseItem:getItem() ", corpseItem:getItem())
-                    -- ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
-                    local MoveCorpseToBag =
-                        EHK.UniversalAction:new(player, corpse, movePickedUpCorpseToBag(availableContainer), 50)
-                    ISTimedActionQueue.add(MoveCorpseToBag)
-                end
+            local corpseObject = corpse:getParent()
+            local corpseItem = corpseObject:getItem()
+            -- print("Corpse found on the ground")
+            local availableContainer = EHK.findAvailableContainer(corpseItem, player)
+            -- print("availableContainer ", availableContainer)
+            -- print("availableContainer ", availableContainer:getType())
+            if (instanceof(availableContainer, "ItemContainer") or instanceof(availableContainer, "InventoryContainer")) then
+                local MoveCorpseToBag =
+                    EHK.UniversalAction:new(player, corpse, movePickedUpCorpseToBag(availableContainer), 50)
+                ISTimedActionQueue.add(MoveCorpseToBag)
+            elseif availableContainer == true then
+                ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
             else
-                local SHI = player:getSecondaryHandItem()
-                if SHI and EHK.corpses[SHI:getFullType()] then
-                    player:Say("I can't fit any more corpses...")
-                else
-                    ISTimedActionQueue.add(ISGrabCorpseAction:new(player, corpse:getParent(), 50))
-                end
+                player:Say("I can't take any more corpses...")
             end
         else -- NO CORPSE ON THE FLOOR
             -- print("Corpse NOT found on the ground")
