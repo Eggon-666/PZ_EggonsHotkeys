@@ -1,22 +1,27 @@
-function EHK.CheckForWindow(worldobjects)
-    for i = 0, worldobjects:size() - 1 do
-        local window = worldobjects:get(i)
-        -- for _, window in ipairs(worldobjects) do
-        if instanceof(window, "IsoWindow") then
-            if (window:IsOpen() or window:isSmashed()) and not window:isBarricaded() then
-                print("Is window 1")
-            end
-        elseif instanceof(window, "IsoThumpable") and not window:isDoor() then
-            if window:isWindow() and window:canClimbThrough(player) then
-                print("Is window 2")
-            elseif window:isHoppable() and window:canClimbOver(player) then
-                print("Is window 3")
-            end
-        -- elseif instanceof(window, "IsoObject") and (window:isHoppable() or OutTheWindow.hasFence(window)) then
-        -- print("Is window 4")
+function EHK.isWindow(allegedWindow, player)
+    if instanceof(allegedWindow, "IsoWindow") then
+        if (allegedWindow:IsOpen() or allegedWindow:isSmashed()) and not allegedWindow:isBarricaded() then
+            -- print("Is window 1")
+            return true
         end
+    elseif instanceof(allegedWindow, "IsoThumpable") and not allegedWindow:isDoor() then
+        if allegedWindow:isWindow() and allegedWindow:canClimbThrough(player) then
+            -- print("Is window 2")
+            return true
+        elseif allegedWindow:isHoppable() and allegedWindow:canClimbOver(player) then
+            -- print("Is window 3")
+            return true
+        end
+    elseif instanceof(window, "IsoObject") and (window:isHoppable() or OutTheWindow.hasFence(window)) then
+        -- print("Is window 4")
+        return true
+    end
+    return false
+end
+function EHK.CheckForWindow(worldobjects)
+    local player = getPlayer()
+    for i = 0, worldobjects:size() - 1 do
+        local allegedWindow = worldobjects:get(i)
+        EHK.isWindow(allegedWindow, player)
     end
 end
-
--- sq:getX(), sq:getY()
--- getSquare(x,y,z)

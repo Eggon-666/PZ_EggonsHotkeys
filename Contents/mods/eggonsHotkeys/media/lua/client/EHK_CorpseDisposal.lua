@@ -9,6 +9,19 @@ local function clearCorpseInBin(self)
     bin:DoRemoveItem(corpse)
 end
 
+local function getWindow(player)
+    local window
+    local direction = player:getDir()
+    local relevantDirections = EHK.getNeighbouringDirections(direction)
+    for i, dir in ipairs(relevantDirections) do
+        window = player:getContextDoorOrWindowOrWindowFrame(dir)
+        if EHK.isWindow(window, player) then
+            break
+        end
+    end
+    return window
+end
+
 local function getSpecificLootContainer(type)
     local loot = getPlayerLoot(getPlayer():getPlayerNum())
     local backpacks = loot.backpacks
@@ -145,6 +158,15 @@ EHK.corpseDisposal = function(keyPressedString)
             local buryTheCorpse = ISBuryCorpse:new(playerNum, grave, 80)
             ISTimedActionQueue.add(buryTheCorpse)
             return
+        end
+        -- checking for OutTheWindow
+        if onThrowCorpse then
+            local window = getWindow(player)
+            print("OutTheWindow detected")
+            if window then
+                onThrowCorpse(nil, player, window, corpse)
+                return
+            end
         end
         -- print("Available grave NOT found")
         if isCorpseEquipped then

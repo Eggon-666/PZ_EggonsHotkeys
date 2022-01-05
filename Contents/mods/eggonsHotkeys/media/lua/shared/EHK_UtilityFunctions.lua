@@ -39,3 +39,12 @@ function EHK.canFitItem(container, item)
         return true
     end
 end
+
+function EHK.getNeighbouringDirections(direction)
+    local output = {
+        direction,
+        direction:RotLeft(),
+        direction:RotRight()
+    }
+    return output
+end
