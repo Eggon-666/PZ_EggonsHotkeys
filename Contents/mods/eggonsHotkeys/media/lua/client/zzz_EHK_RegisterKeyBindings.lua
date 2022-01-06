@@ -95,6 +95,13 @@ EHK.keyConfigs = {
         displayName = "Extinguish fire",
         keyCode = 0
     },
+    sitOnTheGround = {
+        isHotAction = false,
+        isFlexKey = true,
+        action = EHK.sitOnTheGround,
+        displayName = "Sit on the ground",
+        keyCode = 0
+    },
     flexKey = {
         isHotAction = false,
         isFlexKey = false,
