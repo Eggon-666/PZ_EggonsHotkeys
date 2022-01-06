@@ -21,6 +21,8 @@ UI_EN = {
     UI_optionscreen_binding_openFannypack = "Open fanny pack",
     UI_optionscreen_binding_openMainInventory = "Open main inventory",
     UI_optionscreen_binding_toggleInventory = "Toggle inventory window (expand/collapse)",
+    UI_optionscreen_binding_toggleInventoryContainers = "Toggle inventory containers",
+    UI_optionscreen_binding_toggleLootContainers = "Toggle loot containers",
     UI_optionscreen_binding_lootAll = "Loot all",
     UI_optionscreen_binding_sitOnTheGround = "Sit on the ground",
 }
