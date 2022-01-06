@@ -160,14 +160,22 @@ EHK.corpseDisposal = function(keyPressedString)
             return
         end
         -- checking for OutTheWindow
-        if onThrowCorpse then
-            local window = getWindow(player)
-            print("OutTheWindow detected")
-            if window then
-                onThrowCorpse(nil, player, window, corpse)
-                return
-            end
-        end
+        -- if getActivatedMods():contains("OutTheWindow") then
+        --     local window = getWindow(player)
+        --     print("OutTheWindow detected")
+        --     print("onThrowCorpse ", onThrowCorpse)
+        --     if window then
+        --         -- CODE FROM OUT THE WINDOW MOD
+        --         if luautils.walkAdj(player, window:getSquare(), false) then
+        --             local primary, twoHands = true, true
+        --             ISWorldObjectContextMenu.equip(player, player:getPrimaryHandItem(), corpse, primary, twoHands)
+        --             ISTimedActionQueue.add(ISThrowCorpse:new(player, window, corpse, 100))
+        --         end
+        --         return
+        --     end
+        -- else
+        --     print("OutTheWindow NOT detected")
+        -- end
         -- print("Available grave NOT found")
         if isCorpseEquipped then
             ISInventoryPaneContextMenu.unequipItem(corpse, playerNum)

@@ -18,10 +18,10 @@ function EHK.isWindow(allegedWindow, player)
     end
     return false
 end
-function EHK.CheckForWindow(worldobjects)
-    local player = getPlayer()
-    for i = 0, worldobjects:size() - 1 do
-        local allegedWindow = worldobjects:get(i)
-        EHK.isWindow(allegedWindow, player)
-    end
-end
+-- function EHK.CheckForWindow(worldobjects)
+--     local player = getPlayer()
+--     for i = 0, worldobjects:size() - 1 do
+--         local allegedWindow = worldobjects:get(i)
+--         EHK.isWindow(allegedWindow, player)
+--     end
+-- end
