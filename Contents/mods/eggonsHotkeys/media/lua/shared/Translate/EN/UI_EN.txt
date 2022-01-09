@@ -24,5 +24,6 @@ UI_EN = {
     UI_optionscreen_binding_toggleInventoryContainers = "Toggle inventory containers",
     UI_optionscreen_binding_toggleLootContainers = "Toggle loot containers",
     UI_optionscreen_binding_lootAll = "Loot all",
+    UI_optionscreen_binding_transferAll = "Transfer all",
     UI_optionscreen_binding_sitOnTheGround = "Sit on the ground",
 }
