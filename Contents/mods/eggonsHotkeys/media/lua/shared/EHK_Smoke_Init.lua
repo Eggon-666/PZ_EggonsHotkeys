@@ -16,7 +16,8 @@ EHK.cigarettes = {
     [5] = "SM.SMCigaretteLight", -- sztuka
     [6] = "SM.SMPCigaretteMenthol", -- sztuka
     [7] = "SM.SMPCigaretteGold", -- sztuka
-    [8] = "CigaretteMod.CigarettesOne"
+    [8] = "CigaretteMod.CigarettesOne",
+    [9] = "Greenfire.GFCigarette"
 }
 
 EHK.cigarettesPacks = {
@@ -24,10 +25,13 @@ EHK.cigarettesPacks = {
     [2] = "SM.SMPackLight",
     [3] = "SM.SMPackMenthol",
     [4] = "SM.SMPackGold",
-    [5] = "Base.Cigarettes" -- just to trigger prompt to unpack cigs for Carton mod
+    [5] = "Greenfire.GFCigarettes", -- just to trigger prompt to unpack cigs for Greenfire mod
+    [6] = "Base.Cigarettes" -- just to trigger prompt to unpack cigs for Carton mod
 }
 
 EHK.validRecipes = {
     ["Take Cigarette from Pack"] = true
     -- ["Open Packet"] = true
 }
+
+-- getPlayer():getInventory():AddItem("Greenfire.GFCigarettes")
