@@ -8,6 +8,10 @@ if ModOptions and ModOptions.getInstance then
         -- EHK.Options.separateKeyForCorpsePickup = newValues.separateKeyForCorpsePickup
         EHK.Options.tryToLoadCorpseToBackpackFirst = newValues.tryToLoadCorpseToBackpackFirst
         EHK.Options.requireEquipCorpse = newValues.requireEquipCorpse
+        EHK.Options.hideInventoryOnCollapse = newValues.hideInventoryOnCollapse
+        EHK.Options.pinInventoryOnExpand = newValues.pinInventoryOnExpand
+        EHK.Options.secondUseOfBagHotkeyTogglesInventory = newValues.secondUseOfBagHotkeyTogglesInventory
+        EHK.Options.transferSelectedItemWithBagHotkeys = newValues.transferSelectedItemWithBagHotkeys
     end
     local SETTINGS = {
         options_data = {
@@ -38,6 +42,30 @@ if ModOptions and ModOptions.getInstance then
             requireEquipCorpse = {
                 default = true,
                 name = "Require corpse to be equipped when holding",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            hideInventoryOnCollapse = {
+                default = false,
+                name = "Hide inventory bar when collapsing",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            pinInventoryOnExpand = {
+                default = true,
+                name = "Pin inventory window when expanding",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            secondUseOfBagHotkeyTogglesInventory = {
+                default = true,
+                name = "Close inventory with active bag hotkey",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            transferSelectedItemWithBagHotkeys = {
+                default = true,
+                name = "Transfer selected item to bag when using its hotkey",
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             }

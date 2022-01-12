@@ -5,7 +5,11 @@ EHK = {
         displayFlexKey = true,
         -- separateKeyForCorpsePickup = false,
         tryToLoadCorpseToBackpackFirst = false,
-        requireEquipCorpse = true
+        requireEquipCorpse = true,
+        hideInventoryOnCollapse = false,
+        pinInventoryOnExpand = true,
+        secondUseOfBagHotkeyTogglesInventory = true,
+        transferSelectedItemWithBagHotkeys = true
     }
 }
 
