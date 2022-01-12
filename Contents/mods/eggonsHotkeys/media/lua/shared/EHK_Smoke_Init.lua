@@ -33,5 +33,3 @@ EHK.validRecipes = {
     ["Take Cigarette from Pack"] = true
     -- ["Open Packet"] = true
 }
-
--- getPlayer():getInventory():AddItem("Greenfire.GFCigarettes")
