@@ -37,22 +37,8 @@ if DEBUG then
 
     local function testFn(item)
         print("Test function")
-        local player = getPlayer()
-        local square = player:getSquare()
-        -- print("Checking objects")
-        -- EHK.CheckForWindow(square:getObjects())
-        -- print("Checking special objects")
-        -- EHK.CheckForWindow(square:getSpecialObjects())
-        local direction = player:getDir()
-        local relevantDirections = EHK.getNeighbouringDirections(direction)
-        for i, dir in ipairs(relevantDirections) do
-            print("dir: ", dir)
-            local allegedWindow = player:getContextDoorOrWindowOrWindowFrame(dir)
-            EHK.isWindow(allegedWindow, player)
-        end
-        print("allegedWindow ", allegedWindow)
-
-        -- player:reportEvent("EventSitOnGround")
+        -- EggonsMU.printFuckingNormalObject(EggonsMU.functions.getInventory(), "GetPlInv")
+        EggonsMU.printFuckingNormalObject(getPlayer():getInventory():getItems(), "GetPlayer getInventory getItems")
     end
     local function printEvos(item)
         local player = getPlayer()
