@@ -12,6 +12,7 @@ if ModOptions and ModOptions.getInstance then
         EHK.Options.pinInventoryOnExpand = newValues.pinInventoryOnExpand
         EHK.Options.secondUseOfBagHotkeyTogglesInventory = newValues.secondUseOfBagHotkeyTogglesInventory
         EHK.Options.transferSelectedItemWithBagHotkeys = newValues.transferSelectedItemWithBagHotkeys
+        EHK.Options.redirectKeyToKeyRing = newValues.redirectKeyToKeyRing
     end
     local SETTINGS = {
         options_data = {
@@ -66,6 +67,12 @@ if ModOptions and ModOptions.getInstance then
             transferSelectedItemWithBagHotkeys = {
                 default = true,
                 name = "Transfer selected item to bag when using its hotkey",
+                OnApplyMainMenu = applyModOptions,
+                OnApplyInGame = applyModOptions
+            },
+            redirectKeyToKeyRing = {
+                default = true,
+                name = "Redirect transferred keys to key ring",
                 OnApplyMainMenu = applyModOptions,
                 OnApplyInGame = applyModOptions
             }
