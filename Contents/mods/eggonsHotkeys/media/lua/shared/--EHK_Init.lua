@@ -25,4 +25,4 @@ function EHK_Plugin:AddConfigs(keyConfigs)
     end
 end
 
-EggonsMU.config.enableEvent("OnBeforeItemTransfer")
+-- EggonsMU.config.enableEvent("OnBeforeItemTransfer")
