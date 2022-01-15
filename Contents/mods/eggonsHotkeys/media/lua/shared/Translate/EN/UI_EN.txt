@@ -19,6 +19,7 @@ UI_EN = {
     UI_optionscreen_binding_openSecondary = "Open secondary bag",
     UI_optionscreen_binding_openBackpack = "Open backpack",
     UI_optionscreen_binding_openFannypack = "Open fanny pack",
+    UI_optionscreen_binding_openFannypackBack = "Open fanny pack back",
     UI_optionscreen_binding_openMainInventory = "Open main inventory",
     UI_optionscreen_binding_toggleInventory = "Toggle inventory window (expand/collapse)",
     UI_optionscreen_binding_toggleInventoryContainers = "Toggle inventory containers",
