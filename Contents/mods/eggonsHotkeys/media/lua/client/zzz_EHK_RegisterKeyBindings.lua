@@ -77,7 +77,8 @@ EHK.keyConfigs = {
     },
     corpsePickup = {
         isHotAction = false,
-        isFlexKey = true,
+        isFlexKey = false,
+        displayName = "Corpse pickup",
         action = EHK.corpseDisposal,
         keyCode = 0
     },
