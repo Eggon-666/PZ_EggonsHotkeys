@@ -35,10 +35,14 @@ description=[*][h3]Extinguish fire[/h3]Finds extinguishing item, unpacks it to m
 description=Default binding: [i]none[/i]
 description=[*][h3]Sit on the ground[/h3]Sit on the ground.
 description=Default binding: [i]none[/i]
+description=[/list]
 description=[h3]Compatibility[/h3]
 description=Smoking action is compatible with:
 description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
 description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
+description=3) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1703604612]Green Fire[/url] - unpacked cigarettes
+description=[h3]Requirements:[/h3]
+description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2617575303]Eggon's Modding Utils[/url]
 description=[h3]Credits:[/h3]
 description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
 description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
@@ -46,6 +50,5 @@ description=
 description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
 description=
 description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
-description=
 tags=Build 41;Interface
 visibility=public
