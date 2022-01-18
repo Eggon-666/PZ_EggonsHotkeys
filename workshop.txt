@@ -33,6 +33,8 @@ description=[*][h3]Umbrella[/h3]Finds and equips opened umbrella as secondary it
 description=Default binding: [i]none[/i][/list]
 description=[*][h3]Extinguish fire[/h3]Finds extinguishing item, unpacks it to main inventory and triggers extinguishing cursor. Items will be sought in the following order: 1) Extinguisher, 2) Sandbag, 3) Gravel Bag, 4) Dirt Bag, 5) Water container.
 description=Default binding: [i]none[/i]
+description=[*][h3]Sit on the ground[/h3]Sit on the ground.
+description=Default binding: [i]none[/i]
 description=[h3]Compatibility[/h3]
 description=Smoking action is compatible with:
 description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
