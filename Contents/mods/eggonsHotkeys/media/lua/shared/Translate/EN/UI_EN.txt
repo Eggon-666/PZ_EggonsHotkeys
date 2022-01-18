@@ -27,4 +27,5 @@ UI_EN = {
     UI_optionscreen_binding_lootAll = "Loot all",
     UI_optionscreen_binding_transferAll = "Transfer all",
     UI_optionscreen_binding_sitOnTheGround = "Sit on the ground",
+    UI_optionscreen_binding_lootAllUnfoundBooks = "Loot all unfound literature/media",
 }
