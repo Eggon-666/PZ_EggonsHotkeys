@@ -35,6 +35,8 @@ description=[*][h3]Extinguish fire[/h3]Finds extinguishing item, unpacks it to m
 description=Default binding: [i]none[/i]
 description=[*][h3]Sit on the ground[/h3]Sit on the ground.
 description=Default binding: [i]none[/i]
+description=[*][h3]Inventory related hotkeys[/h3]
+description=10 additional hotkeys related to invenory (open backpack, primary, secondary, main, fanny pack, toogle inventory, loop through containers etc.) are available through [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723552116]Inventory Suite[/url] plugin.
 description=[/list]
 description=[h3]Compatibility[/h3]
 description=Smoking action is compatible with:
@@ -50,5 +52,6 @@ description=
 description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
 description=
 description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=
 tags=Build 41;Interface
 visibility=public
