@@ -9,7 +9,8 @@ EHK = {
         hideInventoryOnCollapse = false,
         pinInventoryOnExpand = true,
         secondUseOfBagHotkeyTogglesInventory = true,
-        transferSelectedItemWithBagHotkeys = true
+        transferSelectedItemWithBagHotkeys = true,
+        redirectKeyToKeyRing = true
     }
 }
 
