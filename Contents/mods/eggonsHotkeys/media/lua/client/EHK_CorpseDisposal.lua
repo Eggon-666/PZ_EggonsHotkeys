@@ -9,19 +9,6 @@ local function clearCorpseInBin(self)
     bin:DoRemoveItem(corpse)
 end
 
-local function getWindow(player)
-    local window
-    local direction = player:getDir()
-    local relevantDirections = EHK.getNeighbouringDirections(direction)
-    for i, dir in ipairs(relevantDirections) do
-        window = player:getContextDoorOrWindowOrWindowFrame(dir)
-        if EHK.isWindow(window, player) then
-            break
-        end
-    end
-    return window
-end
-
 local function getSpecificLootContainer(type)
     local loot = getPlayerLoot(getPlayer():getPlayerNum())
     local backpacks = loot.backpacks
@@ -160,22 +147,9 @@ EHK.corpseDisposal = function(keyPressedString)
             return
         end
         -- checking for OutTheWindow
-        -- if getActivatedMods():contains("OutTheWindow") then
-        --     local window = getWindow(player)
-        --     print("OutTheWindow detected")
-        --     print("onThrowCorpse ", onThrowCorpse)
-        --     if window then
-        --         -- CODE FROM OUT THE WINDOW MOD
-        --         if luautils.walkAdj(player, window:getSquare(), false) then
-        --             local primary, twoHands = true, true
-        --             ISWorldObjectContextMenu.equip(player, player:getPrimaryHandItem(), corpse, primary, twoHands)
-        --             ISTimedActionQueue.add(ISThrowCorpse:new(player, window, corpse, 100))
-        --         end
-        --         return
-        --     end
-        -- else
-        --     print("OutTheWindow NOT detected")
-        -- end
+        if EHK.ThrowOutTheWindowOrFence(player, corpse) then
+            return
+        end
         -- print("Available grave NOT found")
         if isCorpseEquipped then
             ISInventoryPaneContextMenu.unequipItem(corpse, playerNum)
