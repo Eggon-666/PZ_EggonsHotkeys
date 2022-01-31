@@ -7,7 +7,7 @@ description=? [b]FlexKey[/b] - is a keybindig to which you can assign (also from
 description=
 description=If you don't want HotActions and FlexKey to appear in your context menu, you can switch them off using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993]ModOptions[/url] mod.
 description=[h2]FEATURED KEYS / ACTIONS[/h2]
-description=[list][*][h3]Corpse Disposal[/h3]4-in-1 hotkey: If no corpse in inventory picks up a corpse. If corpse already in inventory looks for a large trash container and disposes the corpse there (container icon must appear in the loot window). If no trash container is available looks for a grave and buries the corpse (you need to stand on the grave). If no grave is available just drops the corpse.
+description=[list][*][h3]Corpse Disposal[/h3]4-in-1 hotkey: If no corpse in inventory picks up a corpse. If corpse already in inventory looks for a large trash container and disposes the corpse there (container icon must appear in the loot window). If no trash container is available looks for a grave and buries the corpse (you need to stand on the grave). If you are using [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2659216714]Just Throw Them Out The Window[/url] attempts to throw out the window or over fence. If none of the above are available just drops the corpse.
 description=Default binding: [i]none[/i]
 description=[*][h3]Smoke[/h3]Finds cigarettes and light, unpacks them, smokes and then repacks items.
 description=Default binding: [K] (for smoKe)
@@ -39,6 +39,8 @@ description=[*][h3]Inventory related hotkeys[/h3]
 description=10 additional hotkeys related to invenory (open backpack, primary, secondary, main, fanny pack, toogle inventory, loop through containers etc.) are available through [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2723552116]Inventory Suite[/url] plugin.
 description=[/list]
 description=[h3]Compatibility[/h3]
+description=Corpse Disposal action is compatible with:
+description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2659216714]Just Throw Them Out The Window[/url] - throw out the window / over fence action is integrated in the Corpse Disposal to be performed if possible.
 description=Smoking action is compatible with:
 description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2026976958]Smoker[/url] mod - single cigs and open packs
 description=2) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2207313208]Cigarettes Carton MOD[/url] - unpacked cigarettes
@@ -48,10 +50,13 @@ description=1) [url=https://steamcommunity.com/sharedfiles/filedetails/?id=26175
 description=[h3]Credits:[/h3]
 description=Thanks to [url=https://steamcommunity.com/profiles/76561198013209661/myworkshopfiles/?appid=108600]@ThereforeAliens[/url] for the know-how on key-bindings.
 description=Thanks to [url=https://steamcommunity.com/id/NoctisFalco/myworkshopfiles/?appid=108600]@NoctisFalco[/url] for help on smoking.
+description=Thanks to [url=https://steamcommunity.com/profiles/76561198056536755]co'[/url] for adjusting the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2659216714]Just Throw Them Out The Window[/url] mod in a way allowing integration.
+description=[h3][b]SUPPORT ME[/b][/h3]
+description=If you appreciate my content and want to encourage me to deliver more... consider supporting me on Ko-Fi or Patreon! Also check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
 description=
-description=If you like this mod, hit the like button and check out [url=https://steamcommunity.com/profiles/76561198093590691/myworkshopfiles/?section=items&appid=108600]my other mods![/url] :)
+description=[url=https://ko-fi.com/eggon][img]https://i.imgur.com/ULMwSUt.png[/img][/url]
+description=[url=https://www.patreon.com/eggon666][img]https://i.imgur.com/KUfQ5Ma.png[/img][/url]
 description=
 description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
-description=
 tags=Build 41;Interface
 visibility=public
