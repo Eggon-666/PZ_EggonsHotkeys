@@ -14,6 +14,11 @@ function EHK.generateKeyActionsTable()
 end
 
 EHK.triggerAction = function(keyPressed)
+    local player = getPlayer()
+    if not player then
+        -- prevents errors when in main menu
+        return
+    end
     local ActionForKey = EHK.generateKeyActionsTable()
     local keyPressedString = tostring(keyPressed)
     local action = ActionForKey[keyPressedString]
