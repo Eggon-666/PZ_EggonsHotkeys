@@ -7,6 +7,7 @@ UI_EN = {
     UI_optionscreen_binding_smoke = "Smoke",
     UI_optionscreen_binding_betaBlockers = "Take beta blockers",
     UI_optionscreen_binding_painKillers = "Take pain killers",
+    UI_optionscreen_binding_vitamins = "Take vitamins (1 pill)",
     UI_optionscreen_binding_sledgehammer = "Demolish with sledgehammer",
     UI_optionscreen_binding_chopWithAxe = "Chop trees with axe",
     UI_optionscreen_binding_umbrella = "Equip umbrella",

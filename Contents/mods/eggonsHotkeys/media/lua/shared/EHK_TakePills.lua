@@ -20,3 +20,6 @@ end
 function EHK.takePainKillers()
     EHK.takePills("Base.Pills")
 end
+function EHK.takeVitamins()
+    EHK.takePills("Base.PillsVitamins")
+end

@@ -47,6 +47,13 @@ EHK.keyConfigs = {
         action = EHK.takePainKillers,
         keyCode = 43
     },
+    vitamins = {
+        isHotAction = true,
+        isFlexKey = true,
+        displayName = "Take Vitamins (1 pill)",
+        action = EHK.takeVitamins,
+        keyCode = 0
+    },
     sledgehammer = {
         isHotAction = true,
         isFlexKey = true,
