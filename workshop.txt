@@ -15,6 +15,8 @@ description=[*][h3]Take Beta blockers[/h3]Finds pills, takes one and repacks the
 description=Default binding: [']
 description=[*][h3]Take Pain killers[/h3]Finds pills, takes one and repacks the rest.
 description=Default binding: [\]
+description=[*][h3]Take Vitamins[/h3]Finds pills, takes one and repacks the rest. Does not recognize vitamin stacks from Vitamin Holic mod.
+description=Default binding: [i]none[/i]
 description=[*][h3]Equip Molotov[/h3]Finds molotov coctail and a lighter (from any container in inventory) and equips them. The lighter will be switched off, so it will not get used up while holding!
 description=Default binding: [i]none[/i]
 description=[*][h3]Pick up furniture[/h3]Displays pick up cursor for furniture.
@@ -58,5 +60,6 @@ description=[url=https://ko-fi.com/eggon][img]https://i.imgur.com/ULMwSUt.png[/i
 description=[url=https://www.patreon.com/eggon666][img]https://i.imgur.com/KUfQ5Ma.png[/img][/url]
 description=
 description=[img]https://i.imgur.com/cKVBRWw.gif[/img]
+description=
 tags=Build 41;Interface
 visibility=public
