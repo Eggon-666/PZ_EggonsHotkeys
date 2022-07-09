@@ -7,6 +7,11 @@ local function addHotActionsOptions(context)
             HotActionsSubMenu:addOption(keyConfig.displayName, tostring(getCore():getKey(key)), keyConfig.action)
         end
     end
+    for key, keyConfig in pairs(EHK_Plugin.keyConfigs) do
+        if keyConfig.isHotAction then
+            HotActionsSubMenu:addOption(keyConfig.displayName, tostring(getCore():getKey(key)), keyConfig.action)
+        end
+    end
 end
 
 local function addFlexKeyOptions(context)
@@ -14,6 +19,11 @@ local function addFlexKeyOptions(context)
     local FlexKeySubMenu = ISContextMenu:getNew(context)
     context:addSubMenu(FlexKeyOption, FlexKeySubMenu)
     for key, keyConfig in pairs(EHK.keyConfigs) do
+        if keyConfig.isFlexKey then
+            FlexKeySubMenu:addOption(keyConfig.displayName, key, EHK.registerFlexKey)
+        end
+    end
+    for key, keyConfig in pairs(EHK_Plugin.keyConfigs) do
         if keyConfig.isFlexKey then
             FlexKeySubMenu:addOption(keyConfig.displayName, key, EHK.registerFlexKey)
         end
